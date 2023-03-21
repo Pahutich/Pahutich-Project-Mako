@@ -16,13 +16,6 @@ public class Projectile : MonoBehaviour
         meshRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
-    private void Start() {
-        //projectileRigidbody.velocity = transform.forward * speed;
-    }
-    private void FixedUpdate() {
-        //projectileRigidbody.AddForce(target * speed);
-    }
-
     private void OnTriggerEnter(Collider other) {
         StartCoroutine(SelfDestroy());
     }
