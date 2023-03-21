@@ -6,7 +6,6 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
-    [SerializeField] private Transform debugTransform;
     [SerializeField] private Transform spawnPosition;
     private Ray ray;
     Vector3 mouseWorldPosition;
@@ -37,7 +36,6 @@ public class Shooter : MonoBehaviour
             mouseWorldPosition = Vector3.zero;
             if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
             {
-                debugTransform.position = raycastHit.point;
                 mouseWorldPosition = raycastHit.point;
             }
             Shoot(mouseWorldPosition);
@@ -47,7 +45,8 @@ public class Shooter : MonoBehaviour
     private void Shoot(Vector3 mp)
     {
         Vector3 aimDir = (mp - spawnPosition.position).normalized;
-        var p = Instantiate(projectile, spawnPosition.position, Quaternion.LookRotation(transform.TransformDirection(new Vector3(-90, 0, 0)), Vector3.back));
+        var p = Instantiate(projectile, spawnPosition.position, Quaternion.LookRotation(
+            transform.TransformDirection(new Vector3(-90, 0, 0)), Vector3.back));
         p.GetComponentInChildren<Projectile>().target = aimDir;
         p.GetComponentInChildren<Rigidbody>().AddForce(spawnPosition.right * 50f, ForceMode.Impulse);
         PlayerInput.Instance.IsShooting = false;

@@ -22,13 +22,9 @@ public class CanonBaseRotator : MonoBehaviour
         {
             Vector3 raycastVector = raycastHit.point;
             Vector3 aimPos = raycastVector;
-            raycastVector.y = transform.position.y;
-            Vector3 canonTowerPosition = transform.localPosition;
+            aimPos.y = transform.position.y;
             Vector3 lookDirection = (aimPos - transform.position).normalized;
-            lookDirection.y = 0.1700252f;
-            //transform.LookAt(lookDirection, Vector3.up);
             transform.forward = Vector3.Lerp(transform.forward, lookDirection, Time.deltaTime * rotationSpeed);
-            //transform.rotation = Quaternion.Euler(0, transform.rotation.y, transform.rotation.z);
         }
     }
 }
