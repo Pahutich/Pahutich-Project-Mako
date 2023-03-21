@@ -6222,3 +6222,267 @@ Received Import Request.
   path: Assets/Prefabs/Projectile.prefab
   artifactKey: Guid(bceb5d07093d423aa935d49b3fbb75c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs/Projectile.prefab using Guid(bceb5d07093d423aa935d49b3fbb75c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc9ec3644dca23b844df5cf0fa988dab') in 0.007993 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004766 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /mnt/sdb1/Unity projects/Pahutich-Project-Mako/Project Mako/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /mnt/sdb1/Unity projects/Pahutich-Project-Mako/Project Mako/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for LinuxStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 1.02 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.218 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1219ms)
+		BeginReloadAssembly (149ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (66ms)
+		EndReloadAssembly (960ms)
+			LoadAssemblies (66ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (311ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (467ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (27ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (231ms)
+				ProcessInitializeOnLoadMethodAttributes (131ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 4.58 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4115 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 55 unused Assets / (23.1 KB). Loaded Objects now: 4915.
+Memory consumption went from 148.8 MB to 148.8 MB.
+Total: 7.393747 ms (FindLiveObjects: 0.367426 ms CreateObjectMapping: 0.132796 ms MarkObjects: 6.848534 ms  DeleteObjects: 0.043371 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 386.863970 seconds.
+  path: Assets/Audio mixer
+  artifactKey: Guid(396ae12fad02a82abba5a38bdf0f9674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio mixer using Guid(396ae12fad02a82abba5a38bdf0f9674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89c4b0c2f005e4b4fb8c19fa0543ac94') in 0.007448 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.023741 seconds.
+  path: Assets/Audio mixer/Audio Mixer.mixer
+  artifactKey: Guid(868b4a7f7b9b31b28a929d1a61ec3ed9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio mixer/Audio Mixer.mixer using Guid(868b4a7f7b9b31b28a929d1a61ec3ed9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3fb4006f4bbd3a7a1c700a7c7d7f65d') in 0.008179 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.864225 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX
+  artifactKey: Guid(463137d243a3c9e4eb181c3d6c5386fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX using Guid(463137d243a3c9e4eb181c3d6c5386fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27f4148c668a715ca3e75ef38076770a') in 0.020464 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.921162 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons
+  artifactKey: Guid(b120e43f203cdd1409fe0f41eace3840) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons using Guid(b120e43f203cdd1409fe0f41eace3840) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0104e2d299c5a9f639beb75c23e1596') in 0.000812 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.676499 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma
+  artifactKey: Guid(e055598f322646544af455b5c02fc96e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma using Guid(e055598f322646544af455b5c02fc96e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aac159954b6b9b628be11e27d56249ab') in 0.000709 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.562598 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1
+  artifactKey: Guid(7b96d64819bcfbf48a6829aaed7a44b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1 using Guid(7b96d64819bcfbf48a6829aaed7a44b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1762487b81d34323149b1db480c24e33') in 0.000772 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.055657 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Hit_FX_v1.prefab
+  artifactKey: Guid(3d86ef6ae2388d14db98526656659f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Hit_FX_v1.prefab using Guid(3d86ef6ae2388d14db98526656659f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0081d069c02c2d73cf6e0d934d90d0c') in 0.163818 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Shot_FX_v1.prefab
+  artifactKey: Guid(786e8897848ec6f488fa99e0a9ff9484) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Shot_FX_v1.prefab using Guid(786e8897848ec6f488fa99e0a9ff9484) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d55760c2994bd39d155c29e465e6bd8') in 0.021681 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.034797 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Source/Plasma_flame_v1.mat
+  artifactKey: Guid(6748435393a7ac2418c3643e3aa5d3fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Source/Plasma_flame_v1.mat using Guid(6748435393a7ac2418c3643e3aa5d3fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42f0e55fdfd6d38dd92a3d76f6a01562') in 0.028367 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.292346 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Hit_FX_v1.prefab
+  artifactKey: Guid(3d86ef6ae2388d14db98526656659f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Hit_FX_v1.prefab using Guid(3d86ef6ae2388d14db98526656659f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ad685b2438fcc3dbd86be3a415464d2') in 0.007116 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.702464 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Hit_FX_v1.prefab
+  artifactKey: Guid(3d86ef6ae2388d14db98526656659f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Hit_FX_v1.prefab using Guid(3d86ef6ae2388d14db98526656659f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c09d587bd7fbe94790ddcafc274316c9') in 0.007142 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.541958 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Shot_FX_v1.prefab
+  artifactKey: Guid(786e8897848ec6f488fa99e0a9ff9484) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Shot_FX_v1.prefab using Guid(786e8897848ec6f488fa99e0a9ff9484) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '814083c6a756fd4a5a82dd9c1a46a5bb') in 0.008493 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 21.424283 seconds.
+  path: Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Shot_FX_v1.prefab
+  artifactKey: Guid(786e8897848ec6f488fa99e0a9ff9484) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/RTS_Scifi_game_assets/VFX/Weapons/Plasma/Plasma_v1/Plasma_Shot_FX_v1.prefab using Guid(786e8897848ec6f488fa99e0a9ff9484) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d3b26501fb5e22cc27b078c460ae3d3') in 0.008650 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1642.697306 seconds.
+  path: Assets/IgnorePushing/Music/POL-mission-cobra-short.wav
+  artifactKey: Guid(2b28aae5a2b4ec9b0b0ad301fdb43b4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/Music/POL-mission-cobra-short.wav using Guid(2b28aae5a2b4ec9b0b0ad301fdb43b4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e4e42efa501129e0df33e7b117f7fba') in 0.008661 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.985711 seconds.
+  path: Assets/IgnorePushing/Music/1298_isle_of_doom-freesoundtrackmusic/isle_of_doom-freesoundtrackmusic.mp3
+  artifactKey: Guid(20797aeec012b8eb58e8a2dfbbb076c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/IgnorePushing/Music/1298_isle_of_doom-freesoundtrackmusic/isle_of_doom-freesoundtrackmusic.mp3 using Guid(20797aeec012b8eb58e8a2dfbbb076c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd02611d2d2f1e97254b9ee00833ca846') in 0.005381 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004226 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /mnt/sdb1/Unity projects/Pahutich-Project-Mako/Project Mako/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /mnt/sdb1/Unity projects/Pahutich-Project-Mako/Project Mako/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for LinuxStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.88 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.204 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1205ms)
+		BeginReloadAssembly (147ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (68ms)
+		EndReloadAssembly (944ms)
+			LoadAssemblies (65ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (300ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (52ms)
+			SetupLoadedEditorAssemblies (460ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (27ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (68ms)
+				ProcessInitializeOnLoadAttributes (223ms)
+				ProcessInitializeOnLoadMethodAttributes (133ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 4.45 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4115 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 55 unused Assets / (23.1 KB). Loaded Objects now: 4919.
+Memory consumption went from 148.9 MB to 148.9 MB.
+Total: 9.035687 ms (FindLiveObjects: 0.414632 ms CreateObjectMapping: 0.407310 ms MarkObjects: 7.965499 ms  DeleteObjects: 0.246675 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004543 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /mnt/sdb1/Unity projects/Pahutich-Project-Mako/Project Mako/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /mnt/sdb1/Unity projects/Pahutich-Project-Mako/Project Mako/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for LinuxStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.90 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.173 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1174ms)
+		BeginReloadAssembly (144ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (65ms)
+		EndReloadAssembly (927ms)
+			LoadAssemblies (62ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (290ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (461ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (25ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (221ms)
+				ProcessInitializeOnLoadMethodAttributes (137ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 4.02 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4115 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 55 unused Assets / (23.1 KB). Loaded Objects now: 4922.
+Memory consumption went from 148.9 MB to 148.9 MB.
+Total: 8.676064 ms (FindLiveObjects: 0.448495 ms CreateObjectMapping: 0.367525 ms MarkObjects: 7.805733 ms  DeleteObjects: 0.053117 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 82.885865 seconds.
+  path: Assets/Audio mixer/Audio Mixer.mixer
+  artifactKey: Guid(868b4a7f7b9b31b28a929d1a61ec3ed9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio mixer/Audio Mixer.mixer using Guid(868b4a7f7b9b31b28a929d1a61ec3ed9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54b81a5bfcac3967437748370ada5fb2') in 0.015049 seconds 
