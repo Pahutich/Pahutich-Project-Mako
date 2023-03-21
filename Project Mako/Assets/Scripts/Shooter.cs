@@ -47,7 +47,7 @@ public class Shooter : MonoBehaviour
     private void Shoot(Vector3 mp)
     {
         Vector3 aimDir = (mp - spawnPosition.position).normalized;
-        var p = Instantiate(projectile, spawnPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
+        var p = Instantiate(projectile, spawnPosition.position, Quaternion.LookRotation(transform.TransformDirection(new Vector3(-90, 0, 0)), Vector3.back));
         p.GetComponentInChildren<Projectile>().target = aimDir;
         p.GetComponentInChildren<Rigidbody>().AddForce(spawnPosition.right * 50f, ForceMode.Impulse);
         PlayerInput.Instance.IsShooting = false;
