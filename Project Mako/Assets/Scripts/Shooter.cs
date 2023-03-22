@@ -12,10 +12,17 @@ public class Shooter : MonoBehaviour
     [SerializeField] private LayerMask aimColliderLayerMask;
     [SerializeField] private float cooldown;
     private float cooldownTimer;
+    [SerializeField] private float overheatThreshold;
+    [SerializeField] private float overheatPerShot;
+    [SerializeField] private float currentOverheat = 0;
+    [SerializeField] private float coolMultiplier;
+    private bool inOverheat = false;
     PlayerInputActions playerInputActions;
     bool canShoot = false;
+    private AudioSource audioSource; 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
     }
@@ -27,6 +34,7 @@ public class Shooter : MonoBehaviour
 
     void Update()
     {
+        ManageShootingCapability();
         float shootInputValue = playerInputActions.Player.Shooting.ReadValue<float>();
         if (shootInputValue == 1)
         {
@@ -37,12 +45,35 @@ public class Shooter : MonoBehaviour
             }
             Shoot(mouseWorldPosition);
         }
-        if (cooldownTimer > 0)
+    }
+
+    private void ManageShootingCapability()
+    {
+        currentOverheat -= Time.deltaTime * coolMultiplier;
+        if (inOverheat)
+        {
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+        }
+        else
+        {
+            audioSource.Stop();
+        }
+        if (inOverheat && currentOverheat <= 0)
+        {
+            inOverheat = false;
+        }
+        if (currentOverheat >= overheatThreshold)
+        {
+            currentOverheat = overheatThreshold;
+            inOverheat = true;
+        }
+        if (cooldownTimer > 0 || currentOverheat >= overheatThreshold || inOverheat)
         {
             cooldownTimer -= Time.deltaTime;
             canShoot = false;
         }
-        else
+        if (cooldownTimer <= 0 && currentOverheat < overheatThreshold && !inOverheat)
         {
             cooldownTimer = 0f;
             canShoot = true;
@@ -58,6 +89,7 @@ public class Shooter : MonoBehaviour
             transform.TransformDirection(new Vector3(-90, 0, 0)), Vector3.back));
         spawnedProjectile.GetComponentInChildren<Projectile>().target = aimDir;
         spawnedProjectile.GetComponentInChildren<Rigidbody>().AddForce(spawnPosition.right * 50f, ForceMode.Impulse);
+        currentOverheat += overheatPerShot;
         canShoot = false;
         cooldownTimer = cooldown;
     }
