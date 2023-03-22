@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,28 +12,24 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRigidbody;
     private CameraFollow cameraFollow;
     [SerializeField] private WheelCollider[] wheelColliders = new WheelCollider[6];
+    PlayerInputActions playerInputActions;
     private void Awake()
     {
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
         playerRigidbody = GetComponent<Rigidbody>();
         cameraFollow = FindObjectOfType<CameraFollow>();
     }
-
     private void Start()
     {
         playerRigidbody.centerOfMass = centerOfMass.transform.localPosition;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
-    }
-    private void FixedUpdate()
-    {
-        var verticalInput = PlayerInput.Instance.VerticalInput;
-        var horizontalInput = PlayerInput.Instance.HorizontalInput;
-        CheckMotor(verticalInput, horizontalInput);
-        CheckSteer(verticalInput, horizontalInput);
+        Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
+        CheckMotor(inputVector.y, inputVector.x);
+        CheckSteer(inputVector.y, inputVector.x);
     }
 
     private void CheckMotor(float verticalInput, float horizontalInput)
