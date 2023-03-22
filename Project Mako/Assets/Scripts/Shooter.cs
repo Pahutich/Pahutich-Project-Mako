@@ -50,6 +50,8 @@ public class Shooter : MonoBehaviour
     private void ManageShootingCapability()
     {
         currentOverheat -= Time.deltaTime * coolMultiplier;
+        if(currentOverheat <= 0)
+        currentOverheat = 0;
         if (inOverheat)
         {
             if (!audioSource.isPlaying)
