@@ -28,7 +28,6 @@ public class Shooter : MonoBehaviour
     void Update()
     {
         float shootInputValue = playerInputActions.Player.Shooting.ReadValue<float>();
-        Debug.Log(shootInputValue);
         if (shootInputValue == 1)
         {
             mouseWorldPosition = Vector3.zero;
