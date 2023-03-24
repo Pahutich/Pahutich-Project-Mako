@@ -665,6 +665,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1192767094 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8438427020770130798, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
+  m_PrefabInstance: {fileID: 7369413714623699563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1273000572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1421,6 +1426,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1332640692, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 6265053516752350161, guid: e168278d81149b4a5b321b02bd1d4226, type: 3}
+    - target: {fileID: 1332640692, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: coolMultiplier
       value: 10
       objectReference: {fileID: 0}
@@ -1436,6 +1445,10 @@ PrefabInstance:
       propertyPath: overheatThreshold
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1934909791, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1192767094}
     - target: {fileID: 1934909791, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: playerCamera
       value: 

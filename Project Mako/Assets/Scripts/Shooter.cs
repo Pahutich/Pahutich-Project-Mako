@@ -18,13 +18,15 @@ public class Shooter : MonoBehaviour
     [SerializeField] private float coolMultiplier;
     private bool inOverheat = false;
     PlayerInputActions playerInputActions;
+    private CanonBaseRotator canonBaseRotator;
     bool canShoot = false;
-    private AudioSource audioSource; 
+    private AudioSource audioSource;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+        canonBaseRotator = GetComponent<CanonBaseRotator>();
     }
 
     void Start()
@@ -36,22 +38,25 @@ public class Shooter : MonoBehaviour
     {
         ManageShootingCapability();
         float shootInputValue = playerInputActions.Player.Shooting.ReadValue<float>();
+            
         if (shootInputValue == 1)
         {
             mouseWorldPosition = Vector3.zero;
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 999f, aimColliderLayerMask))
             {
-                mouseWorldPosition = raycastHit.point;
+                mouseWorldPosition = hit.point;
+                Shoot(mouseWorldPosition);
             }
-            Shoot(mouseWorldPosition);
         }
     }
 
     private void ManageShootingCapability()
     {
         currentOverheat -= Time.deltaTime * coolMultiplier;
-        if(currentOverheat <= 0)
-        currentOverheat = 0;
+        if (currentOverheat <= 0)
+            currentOverheat = 0;
         if (inOverheat)
         {
             if (!audioSource.isPlaying)
@@ -87,10 +92,10 @@ public class Shooter : MonoBehaviour
         if (!canShoot)
             return;
         Vector3 aimDir = (mousePosition - spawnPosition.position).normalized;
-        var spawnedProjectile = Instantiate(projectile, spawnPosition.position, Quaternion.LookRotation(
-            transform.TransformDirection(new Vector3(-90, 0, 0)), Vector3.back));
-        spawnedProjectile.GetComponentInChildren<Projectile>().target = aimDir;
-        spawnedProjectile.GetComponentInChildren<Rigidbody>().AddForce(spawnPosition.right * 50f, ForceMode.Impulse);
+        var spawnedProjectile = Instantiate(projectile, spawnPosition.position,
+        Quaternion.identity);
+        spawnedProjectile.transform.LookAt(mousePosition);
+        spawnedProjectile.GetComponentInParent<Rigidbody>().AddForce(aimDir * 50f, ForceMode.Impulse);
         currentOverheat += overheatPerShot;
         canShoot = false;
         cooldownTimer = cooldown;

@@ -7,6 +7,7 @@ public class CanonBaseRotator : MonoBehaviour
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] public Transform gun;
     private Ray ray;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class CanonBaseRotator : MonoBehaviour
             aimPos.y = transform.position.y;
             Vector3 lookDirection = (aimPos - transform.position).normalized;
             transform.forward = Vector3.Lerp(transform.forward, lookDirection, Time.deltaTime * rotationSpeed);
+            gun.rotation = Quaternion.Euler(gun.rotation.eulerAngles.x, gun.rotation.eulerAngles.y, (raycastVector - gun.position).y);
         }
     }
 }

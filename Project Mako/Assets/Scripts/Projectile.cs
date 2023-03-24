@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Vector3 target;
     private Rigidbody projectileRigidbody;
     private Collider hitBox;
     private MeshRenderer meshRenderer;
     [SerializeField] private float speed;
     private void Awake()
     {
-        projectileRigidbody = GetComponentInChildren<Rigidbody>();
+        projectileRigidbody = GetComponentInParent<Rigidbody>();
         hitBox = GetComponentInChildren<Collider>();
         meshRenderer = GetComponentInChildren<MeshRenderer>();
     }
@@ -27,6 +26,6 @@ public class Projectile : MonoBehaviour
         projectileRigidbody.angularDrag = 0;
         projectileRigidbody.drag = 0;
         yield return new WaitForSeconds(1);
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 }
