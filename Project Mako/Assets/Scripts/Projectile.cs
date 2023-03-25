@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     private Collider hitBox;
     private MeshRenderer meshRenderer;
     [SerializeField] private float speed;
+    [SerializeField] private int damageToDeal;
     private void Awake()
     {
         projectileRigidbody = GetComponentInParent<Rigidbody>();
@@ -16,6 +17,12 @@ public class Projectile : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        Health health = other.gameObject.GetComponent<Health>();
+        
+        if(health != null)
+        {
+            health.GetHealthSystem().Damage(damageToDeal);
+        }
         StartCoroutine(SelfDestroy());
     }
 
