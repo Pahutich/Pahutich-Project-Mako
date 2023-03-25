@@ -30,13 +30,11 @@ public abstract class Health : MonoBehaviour
     }
     protected void StartDestructionProcess()
     {
-        Debug.Log("heloooioo");
         if(healthSystem.GetHealth() <= 0)
         StartCoroutine(SelfDestroy());
     }
     protected virtual IEnumerator SelfDestroy()
     {
-        Debug.Log("i am about to destroy myself");
         audioSource.Play();
         meshRenderer.enabled = false;
         hitBox.enabled = false;
