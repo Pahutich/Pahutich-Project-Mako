@@ -38,7 +38,13 @@ public abstract class Health : MonoBehaviour
         audioSource.Play();
         meshRenderer.enabled = false;
         hitBox.enabled = false;
+        foreach (Transform item in transform)
+        {
+            Destroy(item.gameObject);
+            //item.gameObject.SetActive(false);
+        }
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
+        //gameObject.SetActive(false);
     }
 }

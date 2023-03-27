@@ -19,6 +19,7 @@ public class Shooter : MonoBehaviour
     private bool inOverheat = false;
     PlayerInputActions playerInputActions;
     private CanonBaseRotator canonBaseRotator;
+    public Vector3 aimDir = Vector3.zero;
     bool canShoot = false;
     private AudioSource audioSource;
     private void Awake()
@@ -96,11 +97,11 @@ public class Shooter : MonoBehaviour
     {
         if (!canShoot)
             return;
-        Vector3 aimDir = (mousePosition - spawnPosition.position).normalized;
+        aimDir = (mousePosition - spawnPosition.position).normalized;
         var spawnedProjectile = Instantiate(projectile, spawnPosition.position,
         Quaternion.identity);
         spawnedProjectile.transform.LookAt(mousePosition);
-        spawnedProjectile.GetComponentInParent<Rigidbody>().AddForce(aimDir * 50f, ForceMode.Impulse);
+        spawnedProjectile.GetComponentInChildren<Projectile>().OnShot(aimDir);
         currentOverheat += overheatPerShot;
         canShoot = false;
         cooldownTimer = cooldown;

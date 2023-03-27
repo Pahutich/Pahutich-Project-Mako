@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
         projectileRigidbody = GetComponentInParent<Rigidbody>();
         hitBox = GetComponentInChildren<Collider>();
         meshRenderer = GetComponentInChildren<MeshRenderer>();
+        
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -22,8 +23,13 @@ public class Projectile : MonoBehaviour
         if(health != null)
         {
             health.GetHealthSystem().Damage(damageToDeal);
+            Debug.Log(health.GetHealthSystem().GetHealth());
         }
         StartCoroutine(SelfDestroy());
+    }
+    public void OnShot(Vector3 direction)
+    {
+        projectileRigidbody.AddForce(direction * 50f, ForceMode.Impulse);
     }
 
     private IEnumerator SelfDestroy()
@@ -33,6 +39,11 @@ public class Projectile : MonoBehaviour
         projectileRigidbody.angularDrag = 0;
         projectileRigidbody.drag = 0;
         yield return new WaitForSeconds(1);
+        if(transform.parent != null)
         Destroy(transform.parent.gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -8,9 +8,9 @@ public class HealthBar : MonoBehaviour
     private HealthSystem healthSystem;
     private Image healthBarImage;
     [SerializeField] private GameObject player;
-    private void Awake() {
+    private void Start() {
         healthBarImage = transform.Find("Foreground").GetComponent<Image>();
-        healthSystem = player.GetComponent<NormalHealth>().GetHealthSystem();
+        healthSystem = player.GetComponent<Health>().GetHealthSystem();
         healthSystem.OnHealthChanged += () => healthBarImage.fillAmount = healthSystem.GetPercent();
     }
 }

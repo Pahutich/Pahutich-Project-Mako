@@ -58,14 +58,16 @@ public class PlayerController : MonoBehaviour
         {
             for (int i = 0; i < wheelColliders.Length; i++)
             {
-                wheelColliders[i].brakeTorque = brakePower;
+                if (wheelColliders[i] != null)
+                    wheelColliders[i].brakeTorque = brakePower;
             }
         }
         else
         {
             for (int i = 0; i < wheelColliders.Length; i++)
             {
-                wheelColliders[i].brakeTorque = 0;
+                if (wheelColliders[i] != null)
+                    wheelColliders[i].brakeTorque = 0;
             }
         }
     }
@@ -74,13 +76,17 @@ public class PlayerController : MonoBehaviour
     {
         for (int i = 0; i < wheelColliders.Length; i++)
         {
-            wheelColliders[i].motorTorque = enginePower * verticalInput;
+            if (wheelColliders[i] != null)
+                wheelColliders[i].motorTorque = enginePower * verticalInput;
         }
     }
 
     private void CheckSteer(float verticalInput, float horizontalInput)
     {
-        wheelColliders[0].steerAngle = steerAngle * horizontalInput;
-        wheelColliders[1].steerAngle = steerAngle * horizontalInput;
+        if (wheelColliders[0] != null && wheelColliders[1] != null)
+        {
+            wheelColliders[0].steerAngle = steerAngle * horizontalInput;
+            wheelColliders[1].steerAngle = steerAngle * horizontalInput;
+        }
     }
 }
