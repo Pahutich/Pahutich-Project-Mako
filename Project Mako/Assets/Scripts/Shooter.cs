@@ -54,27 +54,32 @@ public class Shooter : MonoBehaviour
 
     private void ManageShootingCapability()
     {
-        currentOverheat -= Time.deltaTime * coolMultiplier;
-        if (currentOverheat <= 0)
-            currentOverheat = 0;
-        if (inOverheat)
-        {
-            if (!audioSource.isPlaying)
-                audioSource.Play();
-        }
-        else
-        {
-            audioSource.Stop();
-        }
+        float overheatCooldownMultiplier;
+
         if (inOverheat && currentOverheat <= 0)
         {
             inOverheat = false;
         }
+        currentOverheat -= Time.deltaTime * coolMultiplier;
+        if (currentOverheat <= 0)
+            currentOverheat = 0;
         if (currentOverheat >= overheatThreshold)
         {
             currentOverheat = overheatThreshold;
             inOverheat = true;
         }
+        if (inOverheat)
+        {
+            overheatCooldownMultiplier = coolMultiplier;
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+        }
+        else
+        {
+            overheatCooldownMultiplier = coolMultiplier;
+            audioSource.Stop();
+        }
+        
         if (cooldownTimer > 0 || currentOverheat >= overheatThreshold || inOverheat)
         {
             cooldownTimer -= Time.deltaTime;

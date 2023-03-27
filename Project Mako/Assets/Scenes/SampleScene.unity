@@ -2047,7 +2047,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1332640692, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: cooldown
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1332640692, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: m_Enabled
@@ -2059,7 +2059,7 @@ PrefabInstance:
       objectReference: {fileID: 6265053516752350161, guid: e168278d81149b4a5b321b02bd1d4226, type: 3}
     - target: {fileID: 1332640692, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: coolMultiplier
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1332640692, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: debugTransform
@@ -2067,7 +2067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1332640692, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: overheatPerShot
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1332640692, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: overheatThreshold
