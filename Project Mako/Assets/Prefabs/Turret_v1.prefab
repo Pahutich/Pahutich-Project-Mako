@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 8898000514943784007}
   - component: {fileID: 8898000514943784001}
   - component: {fileID: 8898000514943784000}
+  - component: {fileID: 33000012573083880}
   m_Layer: 0
   m_Name: Turret_v1_tower
   m_TagString: Untagged
@@ -424,6 +425,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+--- !u!114 &33000012573083880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898974128436714510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b016ad411c0c3e0afb2013551f50adf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 15
+  fireRate: 1
+  turnSpeed: 10
+  bulletPrefab: {fileID: 5486341854167531161, guid: dd0eb78d040bf8f5ba4c60ad5743adc3, type: 3}
+  firePoint: {fileID: 5980376292191133310}
 --- !u!1 &8898974130094118354
 GameObject:
   m_ObjectHideFlags: 0
