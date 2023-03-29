@@ -14,7 +14,7 @@ public class Shooter : MonoBehaviour
     private float cooldownTimer;
     [SerializeField] private float overheatThreshold;
     [SerializeField] private float overheatPerShot;
-    [SerializeField] private float currentOverheat = 0;
+    public float currentOverheat = 0;
     [SerializeField] private float coolMultiplier;
     private bool inOverheat = false;
     PlayerInputActions playerInputActions;
@@ -22,6 +22,7 @@ public class Shooter : MonoBehaviour
     public Vector3 aimDir = Vector3.zero;
     bool canShoot = false;
     private AudioSource audioSource;
+    public Action OnOverheatChanged;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -52,7 +53,10 @@ public class Shooter : MonoBehaviour
             }
         }
     }
-
+    public float GetOverheatPercent()
+    {
+        return (float)currentOverheat / overheatThreshold;
+    }
     private void ManageShootingCapability()
     {
         float overheatCooldownMultiplier;
@@ -91,6 +95,7 @@ public class Shooter : MonoBehaviour
             cooldownTimer = 0f;
             canShoot = true;
         }
+        OnOverheatChanged?.Invoke();
     }
 
     private void Shoot(Vector3 mousePosition)
