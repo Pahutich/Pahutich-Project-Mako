@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
     }
     public void OnShot(Vector3 direction)
     {
-        projectileRigidbody.AddForce(direction * 50f, ForceMode.Impulse);
+        projectileRigidbody.AddForce(direction * speed, ForceMode.Impulse);
     }
 
     private IEnumerator SelfDestroy()
