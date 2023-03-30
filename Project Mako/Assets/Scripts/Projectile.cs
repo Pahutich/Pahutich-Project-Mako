@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private int damageToDeal;
     private void Awake()
     {
-        projectileRigidbody = GetComponentInParent<Rigidbody>();
+        projectileRigidbody = GetComponent<Rigidbody>();
         hitBox = GetComponentInChildren<Collider>();
         meshRenderer = GetComponentInChildren<MeshRenderer>();
         
@@ -19,9 +19,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         Health health = other.gameObject.GetComponent<Health>();
-        
+        Debug.Log(other);
         if(health != null)
         {
+            Debug.Log("health not null");
             health.GetHealthSystem().Damage(damageToDeal);
             Debug.Log(health.GetHealthSystem().GetHealth());
         }
@@ -34,6 +35,7 @@ public class Projectile : MonoBehaviour
 
     private IEnumerator SelfDestroy()
     {
+        Debug.Log("self destruction began");
         meshRenderer.enabled = false;
         hitBox.enabled = false;
         projectileRigidbody.angularDrag = 0;
