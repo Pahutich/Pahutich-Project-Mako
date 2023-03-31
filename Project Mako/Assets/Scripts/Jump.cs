@@ -19,6 +19,7 @@ public class Jump : MonoBehaviour
         playerInputActions.Player.Enable();
         jumpFuelCurrent = jumpFuelMax;
         enginesVisuals.ForEach(e => e.SetActive(false));
+        //timeSinceReload = timeToWaitTillRefuel;
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class Jump : MonoBehaviour
     {
         bool isJumping = playerInputActions.Player.Jump.ReadValue<float>() > 0.1f;
         bool hasSuffientAmountOfFuel = jumpFuelCurrent > 0;
+
         if (isJumping && hasSuffientAmountOfFuel)
         {
             Vector3 jumpVector = transform.up * jumpForce;
@@ -40,7 +42,7 @@ public class Jump : MonoBehaviour
             canRechargeFuel = true;
             jumpFuelCurrent += Time.deltaTime * fuelRegenerationAbility;
         }
-            
+
         if (jumpFuelCurrent > jumpFuelMax)
             jumpFuelCurrent = jumpFuelMax;
         if (jumpFuelCurrent < 0)
