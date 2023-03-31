@@ -62,6 +62,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Nitro"",
+                    ""type"": ""Button"",
+                    ""id"": ""3afdfd49-e60b-4fb1-aea0-85dbd70d76e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -174,6 +183,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6188e433-d4c3-40ec-b75e-e9becb4b8a66"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""Nitro"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -214,6 +234,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Shooting = m_Player.FindAction("Shooting", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Nitro = m_Player.FindAction("Nitro", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -277,6 +298,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shooting;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Nitro;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -285,6 +307,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Shooting => m_Wrapper.m_Player_Shooting;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Nitro => m_Wrapper.m_Player_Nitro;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -306,6 +329,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Nitro.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNitro;
+                @Nitro.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNitro;
+                @Nitro.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNitro;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -322,6 +348,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Nitro.started += instance.OnNitro;
+                @Nitro.performed += instance.OnNitro;
+                @Nitro.canceled += instance.OnNitro;
             }
         }
     }
@@ -350,5 +379,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnShooting(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnNitro(InputAction.CallbackContext context);
     }
 }

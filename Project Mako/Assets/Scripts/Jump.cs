@@ -28,7 +28,8 @@ public class Jump : MonoBehaviour
         bool hasSuffientAmountOfFuel = jumpFuelCurrent > 0;
         if (isJumping && hasSuffientAmountOfFuel)
         {
-            jumpingRigidbody.AddForce(transform.InverseTransformDirection(Vector3.up) * jumpForce, ForceMode.Force);
+            Vector3 jumpVector = transform.up * jumpForce;
+            jumpingRigidbody.AddForce(jumpVector, ForceMode.Force);
             enginesVisuals.ForEach(e => e.SetActive(true));
             canRechargeFuel = false;
             jumpFuelCurrent -= Time.deltaTime * fuelRegenerationAbility;
