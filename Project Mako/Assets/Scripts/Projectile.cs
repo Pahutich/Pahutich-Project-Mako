@@ -19,7 +19,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         Health health = other.gameObject.GetComponent<Health>();
-        if(health != null)
+        Shields shields = other.gameObject.GetComponent<Shields>();
+        if(shields != null)
+        {
+            shields.OnHitReceived(damageToDeal);
+        }
+        else if(health != null)
         {
             health.GetHealthSystem().Damage(damageToDeal);
         }

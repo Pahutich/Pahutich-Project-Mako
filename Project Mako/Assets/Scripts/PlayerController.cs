@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speedText;
     private Rigidbody playerRigidbody;
     private CameraFollow cameraFollow;
+    private AudioSource audioSource;
     Vector2 inputVector = Vector2.zero;
     private float speed = 0f;
     [SerializeField] private WheelCollider[] wheelColliders = new WheelCollider[6];
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
         playerInputActions.Player.Enable();
         playerRigidbody = GetComponent<Rigidbody>();
         cameraFollow = FindObjectOfType<CameraFollow>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -36,6 +38,13 @@ public class PlayerController : MonoBehaviour
             speed = playerRigidbody.velocity.magnitude * 3.6f;
             speedText.text = "Speed: " + speed;
         }
+        if (inputVector.y != 0)
+        {
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+        }
+        else
+            audioSource.Stop();
     }
     void FixedUpdate()
     {
@@ -94,9 +103,9 @@ public class PlayerController : MonoBehaviour
     {
         foreach (var item in wheelColliders)
         {
-            if(item.isGrounded)
-            return true;
+            if (item.isGrounded)
+                return true;
         }
         return false;
-    } 
+    }
 }
