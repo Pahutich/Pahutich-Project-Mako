@@ -89,4 +89,14 @@ public class PlayerController : MonoBehaviour
             wheelColliders[1].steerAngle = steerAngle * horizontalInput;
         }
     }
+
+    public bool IsGrounded()
+    {
+        foreach (var item in wheelColliders)
+        {
+            if(item.isGrounded)
+            return true;
+        }
+        return false;
+    } 
 }
