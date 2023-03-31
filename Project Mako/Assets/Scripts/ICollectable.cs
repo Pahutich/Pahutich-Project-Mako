@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ICollectable
 {
-    public void Collect(Health health);
+    public void Collect<T>(T collectable);
 }
