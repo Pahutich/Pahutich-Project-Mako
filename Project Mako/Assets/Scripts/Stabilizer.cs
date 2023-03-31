@@ -19,7 +19,6 @@ public class Stabilizer : MonoBehaviour {
 	{
         if (rb != null && !playerController.IsGrounded())
         {
-            Debug.Log("stabilizing");
             Vector3 predictedUp = Quaternion.AngleAxis(rb.angularVelocity.magnitude * Mathf.Rad2Deg * stability / speed, rb.angularVelocity) * transform.up;
             Vector3 torqueVector = Vector3.Cross(predictedUp, Vector3.up);
             rb.AddTorque(torqueVector * speed * speed);
