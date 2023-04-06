@@ -7,6 +7,7 @@ public class Jump : MonoBehaviour
     private bool canRechargeFuel = true;
     private Rigidbody jumpingRigidbody;
     private PlayerInputActions playerInputActions;
+    private PlayerController playerController;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float jumpFuelMax;
     [SerializeField] private float fuelRegenerationAbility;
@@ -16,6 +17,7 @@ public class Jump : MonoBehaviour
     {
         jumpingRigidbody = GetComponent<Rigidbody>();
         playerInputActions = new PlayerInputActions();
+        playerController = GetComponent<PlayerController>();
         playerInputActions.Player.Enable();
         jumpFuelCurrent = jumpFuelMax;
         enginesVisuals.ForEach(e => e.SetActive(false));
@@ -40,6 +42,7 @@ public class Jump : MonoBehaviour
         {
             enginesVisuals.ForEach(e => e.SetActive(false));
             canRechargeFuel = true;
+            if(playerController.IsGrounded())
             jumpFuelCurrent += Time.deltaTime * fuelRegenerationAbility;
         }
 
