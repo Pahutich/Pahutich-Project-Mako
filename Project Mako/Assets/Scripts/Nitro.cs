@@ -6,6 +6,7 @@ public class Nitro : MonoBehaviour
 {
     private bool canRechargeFuel = true;
     private Rigidbody playerRigidbody;
+    private AudioSource audioSource;
     private PlayerInputActions playerInputActions;
     [SerializeField] private float nitroForce = 10f;
     [SerializeField] private float nitroFuelMax;
@@ -14,7 +15,8 @@ public class Nitro : MonoBehaviour
     [SerializeField] private List<GameObject> enginesVisuals;
     private void Awake()
     {
-        playerRigidbody = GetComponent<Rigidbody>();
+        playerRigidbody = GetComponentInParent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         nitroFuelCurrent = nitroFuelMax;
@@ -33,14 +35,18 @@ public class Nitro : MonoBehaviour
             enginesVisuals.ForEach(e => e.SetActive(true));
             canRechargeFuel = false;
             nitroFuelCurrent -= Time.deltaTime * nitroRegenerationAbility;
+            if (!audioSource.isPlaying)
+                audioSource.Play();
         }
         else
         {
             enginesVisuals.ForEach(e => e.SetActive(false));
             canRechargeFuel = true;
             nitroFuelCurrent += Time.deltaTime * nitroRegenerationAbility;
+            if (audioSource.isPlaying)
+                audioSource.Stop();
         }
-            
+
         if (nitroFuelCurrent > nitroFuelMax)
             nitroFuelCurrent = nitroFuelMax;
         if (nitroFuelCurrent < 0)
