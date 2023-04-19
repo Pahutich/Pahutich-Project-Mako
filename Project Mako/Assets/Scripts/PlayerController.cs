@@ -50,14 +50,18 @@ public class PlayerController : MonoBehaviour
         }
         else
             audioSource.Stop();
+        ClampPosition();
+    }
 
+    private void ClampPosition()
+    {
         float clampedX = Mathf.Clamp(transform.position.x, min.x, max.x);
         float clampedY = Mathf.Clamp(transform.position.y, min.y, max.y);
         float clampedZ = Mathf.Clamp(transform.position.z, min.z, max.z);
 
-        transform.position = new Vector3(
-    clampedX, clampedY, clampedZ);
+        transform.position = new Vector3(clampedX, clampedY, clampedZ);
     }
+
     void FixedUpdate()
     {
 
