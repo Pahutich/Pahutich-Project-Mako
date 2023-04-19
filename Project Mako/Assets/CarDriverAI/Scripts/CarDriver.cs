@@ -7,17 +7,17 @@ public class CarDriver : MonoBehaviour
 
     #region Fields
     private float speed;
-    private float speedMax = 70f;
-    private float speedMin = -50f;
-    private float acceleration = 30f;
-    private float brakeSpeed = 100f;
-    private float reverseSpeed = 30f;
-    private float idleSlowdown = 10f;
+    [SerializeField] private float speedMax = 70f;
+    [SerializeField] private float speedMin = -50f;
+    [SerializeField] private float acceleration = 30f;
+    [SerializeField] private float brakeSpeed = 100f;
+    [SerializeField] private float reverseSpeed = 30f;
+    [SerializeField] private float idleSlowdown = 10f;
 
     private float turnSpeed;
-    private float turnSpeedMax = 300f;
-    private float turnSpeedAcceleration = 300f;
-    private float turnIdleSlowdown = 500f;
+    [SerializeField] private float turnSpeedMax = 300f;
+    [SerializeField] private float turnSpeedAcceleration = 300f;
+    [SerializeField] private float turnIdleSlowdown = 500f;
 
     private float forwardAmount;
     private float turnAmount;
@@ -65,9 +65,9 @@ public class CarDriver : MonoBehaviour
         }
 
         speed = Mathf.Clamp(speed, speedMin, speedMax);
-
-        carRigidbody.velocity = transform.forward * speed;
-
+        //here is where car stops falling normally
+        Vector3 v = transform.forward * speed;
+        carRigidbody.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.VelocityChange);
         if (speed < 0)
         {
             // Going backwards, invert wheels

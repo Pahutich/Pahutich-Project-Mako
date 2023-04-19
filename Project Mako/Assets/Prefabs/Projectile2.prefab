@@ -211,6 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   damageToDeal: 2
+  ownCollisionLayer: 3
 --- !u!54 &8138712613530350863
 Rigidbody:
   m_ObjectHideFlags: 0

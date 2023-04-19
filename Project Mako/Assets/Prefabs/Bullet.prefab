@@ -127,5 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9e4fc8b692f1141bacd56dd48700be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  damageToDeal: 15
+  speed: 5
+  damageToDeal: 5
+  ownCollisionLayer: 6
