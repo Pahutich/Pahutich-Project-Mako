@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9e4fc8b692f1141bacd56dd48700be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 200
   damageToDeal: 2
   ownCollisionLayer: 3
 --- !u!54 &8138712613530350863
