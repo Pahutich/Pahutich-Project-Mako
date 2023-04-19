@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float steerAngle;
     [SerializeField] private Transform centerOfMass;
     [SerializeField] private TextMeshProUGUI speedText;
+    [SerializeField] private float airSteeringForce;
+    [SerializeField] private float turnCarAfteXSeconds = 3f;
+    private float carUpsideDownTimer = 0f;
     private Rigidbody playerRigidbody;
     private CameraFollow cameraFollow;
     private AudioSource audioSource;
@@ -51,12 +54,30 @@ public class PlayerController : MonoBehaviour
 
         CheckMotor(inputVector.y, inputVector.x);
         CheckSteer(inputVector.y, inputVector.x);
+        CheckAir(inputVector.y, inputVector.x);
+        CheckCarDown();
     }
 
     private void CheckMotor(float verticalInput, float horizontalInput)
     {
         RotateWheelsFB(verticalInput);
         BreakWheels(verticalInput, horizontalInput);
+    }
+
+    private void CheckAir(float verticalInput, float horizontalInput)
+    {
+        if (IsGrounded())
+            return;
+
+        Quaternion verticalAirRotation = Quaternion.AngleAxis(verticalInput * 40f, Vector3.right);
+        Quaternion targetVerticalRotation = playerRigidbody.rotation * verticalAirRotation;
+
+        playerRigidbody.MoveRotation(Quaternion.Lerp(playerRigidbody.rotation, targetVerticalRotation, 2.0f * Time.deltaTime));
+
+        Quaternion horizontalAirRotation = Quaternion.AngleAxis(horizontalInput * 40f, Vector3.back);
+        Quaternion targetHorizontalRotation = playerRigidbody.rotation * horizontalAirRotation;
+
+        playerRigidbody.MoveRotation(Quaternion.Lerp(playerRigidbody.rotation, targetHorizontalRotation, 2.0f * Time.deltaTime));
     }
 
     private void BreakWheels(float verticalInput, float horizontalInput)
@@ -96,6 +117,23 @@ public class PlayerController : MonoBehaviour
         {
             wheelColliders[0].steerAngle = steerAngle * horizontalInput;
             wheelColliders[1].steerAngle = steerAngle * horizontalInput;
+        }
+    }
+    private void CheckCarDown()
+    {
+        if (Vector3.Dot(transform.up, Vector3.down) > 0 && !IsGrounded() && playerRigidbody.velocity.magnitude <= Math.Abs(0.1))
+        {
+            carUpsideDownTimer += Time.deltaTime;
+            if (carUpsideDownTimer >= turnCarAfteXSeconds)
+            {
+                transform.rotation = Quaternion.identity;
+                playerRigidbody.velocity = Vector3.zero;
+                playerRigidbody.angularVelocity = Vector3.zero;
+            }
+        }
+        else
+        {
+            carUpsideDownTimer = 0f;
         }
     }
 
