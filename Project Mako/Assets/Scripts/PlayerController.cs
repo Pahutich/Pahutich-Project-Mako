@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speedText;
     [SerializeField] private float airSteeringForce;
     [SerializeField] private float turnCarAfteXSeconds = 3f;
+    [SerializeField] private Vector3 min;
+    [SerializeField] private Vector3 max;
     private float carUpsideDownTimer = 0f;
     private Rigidbody playerRigidbody;
     private CameraFollow cameraFollow;
@@ -48,6 +50,13 @@ public class PlayerController : MonoBehaviour
         }
         else
             audioSource.Stop();
+
+        float clampedX = Mathf.Clamp(transform.position.x, min.x, max.x);
+        float clampedY = Mathf.Clamp(transform.position.y, min.y, max.y);
+        float clampedZ = Mathf.Clamp(transform.position.z, min.z, max.z);
+
+        transform.position = new Vector3(
+    clampedX, clampedY, clampedZ);
     }
     void FixedUpdate()
     {
