@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Shooter))]
 public class ProjectilesPool : MonoBehaviour
 {
     private List<GameObject> pooledProjectiles = new List<GameObject>();
