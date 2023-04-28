@@ -5,30 +5,32 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    [SerializeField] private GameObject projectile;
-    [SerializeField] private Transform spawnPosition;
-    private Ray ray;
-    Vector3 mouseWorldPosition;
-    [SerializeField] private LayerMask aimColliderLayerMask;
-    [SerializeField] private float cooldown;
+    private bool inOverheat = false;
+    private bool canShoot = false;
     private float cooldownTimer;
+    private Vector3 mouseWorldPosition;
+    private Vector3 aimDir = Vector3.zero;
+    private Ray ray;
+    private AudioSource audioSource;
+    private PlayerInputActions playerInputActions;
+    private CanonBaseRotator canonBaseRotator;
+    private ProjectilesPool projectilesPool;
+    [SerializeField] private float cooldown;
     [SerializeField] private float overheatThreshold;
     [SerializeField] private float overheatPerShot;
-    public float currentOverheat = 0;
     [SerializeField] private float coolMultiplier;
-    private bool inOverheat = false;
-    PlayerInputActions playerInputActions;
-    private CanonBaseRotator canonBaseRotator;
-    public Vector3 aimDir = Vector3.zero;
-    bool canShoot = false;
-    private AudioSource audioSource;
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private Transform spawnPosition;
+    [SerializeField] private LayerMask aimColliderLayerMask;
+    public float currentOverheat = 0;
     public Action OnOverheatChanged;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
         canonBaseRotator = GetComponent<CanonBaseRotator>();
+        projectilesPool = GetComponent<ProjectilesPool>();
+        playerInputActions.Player.Enable();
     }
 
     void Start()
@@ -40,7 +42,7 @@ public class Shooter : MonoBehaviour
     {
         ManageShootingCapability();
         float shootInputValue = playerInputActions.Player.Shooting.ReadValue<float>();
-            
+
         if (shootInputValue == 1)
         {
             mouseWorldPosition = Vector3.zero;
@@ -84,7 +86,7 @@ public class Shooter : MonoBehaviour
             overheatCooldownMultiplier = coolMultiplier;
             audioSource.Stop();
         }
-        
+
         if (cooldownTimer > 0 || currentOverheat >= overheatThreshold || inOverheat)
         {
             cooldownTimer -= Time.deltaTime;
@@ -102,13 +104,26 @@ public class Shooter : MonoBehaviour
     {
         if (!canShoot)
             return;
-        aimDir = (mousePosition - spawnPosition.position).normalized;
-        var spawnedProjectile = Instantiate(projectile, spawnPosition.position,
-        Quaternion.identity);
-        spawnedProjectile.transform.LookAt(mousePosition);
-        spawnedProjectile.GetComponentInChildren<Projectile>().OnShot(aimDir);
-        currentOverheat += overheatPerShot;
-        canShoot = false;
-        cooldownTimer = cooldown;
+        aimDir = (mousePosition - spawnPosition.gameObject.transform.position).normalized;
+        var spawnedProjectile = projectilesPool.GetPooledProjectiles();
+        if (spawnedProjectile)
+        {
+            spawnedProjectile.transform.position = spawnPosition.position;
+            spawnedProjectile.transform.rotation = Quaternion.identity;
+            spawnedProjectile.SetActive(true);
+            //workaround for bullet having children
+            if (spawnedProjectile.transform.childCount > 0)
+            {
+                foreach (Transform child in spawnedProjectile.transform)
+                {
+                    child.gameObject.SetActive(true);
+                }
+            }
+            spawnedProjectile.transform.LookAt(aimDir);
+            spawnedProjectile.GetComponentInChildren<Projectile>().OnShot(aimDir);
+            currentOverheat += overheatPerShot;
+            canShoot = false;
+            cooldownTimer = cooldown;
+        }
     }
 }

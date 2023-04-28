@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 120000
-  jumpFuelMax: 40
+  jumpFuelMax: 200
   fuelRegenerationAbility: 40
   jumpFuelCurrent: 0
   enginesVisuals:
@@ -587,6 +587,7 @@ GameObject:
   - component: {fileID: 1934909791}
   - component: {fileID: 1332640692}
   - component: {fileID: 364238940}
+  - component: {fileID: 1833107945}
   m_Layer: 3
   m_Name: Canon base
   m_TagString: Untagged
@@ -627,7 +628,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
-  gun: {fileID: 8438427020770130798}
+  gun: {fileID: 8438427021591143882}
 --- !u!114 &1332640692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836ff97c00a2d11ce86f91c24996cdfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 6265053516752350161, guid: e168278d81149b4a5b321b02bd1d4226, type: 3}
+  projectile: {fileID: 8742691410914181158, guid: 8b7a4af53410d7c27acc929e93bdfbe4, type: 3}
   spawnPosition: {fileID: 5295967259618000717}
   aimColliderLayerMask:
     serializedVersion: 2
@@ -747,6 +748,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1833107945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049075961595187435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e208403ba1059135ba04cb3ed9001f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberToPool: 12
+  projectilePrefab: {fileID: 8742691410914181158, guid: 8b7a4af53410d7c27acc929e93bdfbe4, type: 3}
 --- !u!1 &3453318456709561541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1378,10 @@ MonoBehaviour:
   steerAngle: 60
   centerOfMass: {fileID: 3453318458727711433}
   speedText: {fileID: 0}
+  airSteeringForce: 0.2
+  turnCarAfteXSeconds: 3
+  min: {x: 0, y: -1, z: 0}
+  max: {x: 300, y: 25, z: 400}
   wheelColliders:
   - {fileID: 3453318456709561531}
   - {fileID: 3453318458762625469}
@@ -1719,7 +1738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nitroForce: 8
-  nitroFuelMax: 20
+  nitroFuelMax: 40
   nitroRegenerationAbility: 40
   nitroFuelCurrent: 0
   enginesVisuals:
@@ -1833,7 +1852,7 @@ GameObject:
   m_Layer: 3
   m_Name: Projectile spawn position
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1845,7 +1864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6432981494550295767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.118, y: 0, z: -0}
+  m_LocalPosition: {x: 1.575, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
