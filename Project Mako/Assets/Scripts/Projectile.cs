@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody projectileRigidbody;
     private Collider hitBox;
     private MeshRenderer meshRenderer;
+    private TrailRenderer trailRenderer;
     [SerializeField] private bool debuggingAiming = false;
     [SerializeField] private float speed;
     [SerializeField] private float timeToDisappear = 3f;
@@ -20,6 +21,7 @@ public class Projectile : MonoBehaviour
         projectileRigidbody = GetComponent<Rigidbody>();
         hitBox = GetComponentInChildren<Collider>();
         meshRenderer = GetComponentInChildren<MeshRenderer>();
+        trailRenderer = GetComponent<TrailRenderer>();
         drag = projectileRigidbody.drag;
         angularDrag = projectileRigidbody.angularDrag;
     }
@@ -30,6 +32,7 @@ public class Projectile : MonoBehaviour
         hitBox.enabled = true;
         projectileRigidbody.angularDrag = angularDrag;
         projectileRigidbody.drag = drag;
+        trailRenderer.emitting = true;
         timer = 0f;
     }
 
@@ -89,6 +92,7 @@ public class Projectile : MonoBehaviour
         projectileRigidbody.angularVelocity = Vector3.zero;
         meshRenderer.enabled = false;
         hitBox.enabled = false;
+        trailRenderer.emitting = false;
     }
 
     private void Update()
