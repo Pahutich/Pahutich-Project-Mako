@@ -10,6 +10,7 @@ public abstract class Health : MonoBehaviour
     protected HealthSystem healthSystem;
     [SerializeField] protected int health;
     [SerializeField] protected string healthHolderName;
+    [SerializeField] protected AudioSource respectiveAudioImpact;
     private void Awake()
     {
         SetupHealthObject();
@@ -33,6 +34,10 @@ public abstract class Health : MonoBehaviour
     {
         if (hs.GetHealth() <= 0)
             StartCoroutine(SelfDestroy());
+    }
+    public void PlayImpactSound()
+    {
+        respectiveAudioImpact.Play();
     }
     protected virtual IEnumerator SelfDestroy()
     {

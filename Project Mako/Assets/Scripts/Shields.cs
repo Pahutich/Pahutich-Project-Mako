@@ -10,6 +10,7 @@ public class Shields : MonoBehaviour
     [SerializeField] private float timeToStartRegenerating;
     [SerializeField] private float regenerationSpeed;
     [SerializeField] private float timeSinceLastHit;
+    [SerializeField] private AudioSource respectiveSoundEffect;
     private Health health;
     public event Action OnShieldCapacityChanged;
     private void Awake()
@@ -44,14 +45,27 @@ public class Shields : MonoBehaviour
         }
     }
 
+    public float GetShieldCapacity()
+    {
+        return shieldCapacity;
+    }
+
     public void OnHitReceived(float damageAmount)
     {
         float shieldCapacityBeforeHit = shieldCapacity;
-        shieldCapacity -= damageAmount;
+        if (shieldCapacity > 0)
+            shieldCapacity -= damageAmount;
+        if (shieldCapacity < 0)
+            shieldCapacity = 0;
         OnShieldCapacityChanged?.Invoke();
         timeSinceLastHit = 0;
         if (damageAmount > shieldCapacity)
             health.GetHealthSystem().Damage((int)damageAmount - (int)shieldCapacityBeforeHit);
+        else
+        {
+            respectiveSoundEffect.Play();
+        }
+
     }
     public float GetPercent()
     {

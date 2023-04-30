@@ -54,11 +54,13 @@ public class Projectile : MonoBehaviour
         Shields shields = other.gameObject.GetComponent<Shields>();
         if (shields != null)
         {
-            shields.OnHitReceived(damageToDeal);
+            if (shields.GetShieldCapacity() >= 0)
+                shields.OnHitReceived(damageToDeal);
         }
-        else if (health != null)
+        if (health != null && shields == null || shields != null && shields.GetShieldCapacity() <= 0)
         {
             health.GetHealthSystem().Damage(damageToDeal);
+            health.PlayImpactSound();
         }
         StartCoroutine(SelfDestroy());
         if (debuggingAiming)
