@@ -127,4 +127,8 @@ public class Shooter : MonoBehaviour
             cooldownTimer = cooldown;
         }
     }
+    public bool GetOverhearStatus()
+    {
+        return inOverheat;
+    }
 }
