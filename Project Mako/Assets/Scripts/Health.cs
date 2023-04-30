@@ -9,6 +9,7 @@ public abstract class Health : MonoBehaviour
     protected MeshRenderer meshRenderer;
     protected HealthSystem healthSystem;
     [SerializeField] protected int health;
+    [SerializeField] protected string healthHolderName;
     private void Awake()
     {
         SetupHealthObject();
@@ -19,7 +20,7 @@ public abstract class Health : MonoBehaviour
         hitBox = GetComponentInChildren<Collider>();
         audioSource = GetComponentInChildren<AudioSource>();
         meshRenderer = GetComponentInChildren<MeshRenderer>();
-        healthSystem = new HealthSystem(health);
+        healthSystem = new HealthSystem(health, healthHolderName);
         healthSystem.OnHealthChanged += StartDestructionProcess;
         healthSystem.OnDead += () => StartCoroutine(SelfDestroy());
     }

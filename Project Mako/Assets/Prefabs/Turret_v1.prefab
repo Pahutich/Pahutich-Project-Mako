@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  healthHolderName: Turret J-46
 --- !u!114 &33000012573083880
 MonoBehaviour:
   m_ObjectHideFlags: 0

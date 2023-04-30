@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  healthHolderName: Obstacle
 --- !u!82 &9105518916773097866
 AudioSource:
   m_ObjectHideFlags: 0

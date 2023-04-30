@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Scanner : MonoBehaviour
@@ -7,15 +8,11 @@ public class Scanner : MonoBehaviour
     private Vector3 mouseWorldPosition;
     [SerializeField] private LayerMask aimColliderLayerMask;
     [SerializeField] private HealthBar healthBarOfScannedEnemy;
+    [SerializeField] private TextMeshProUGUI enemyName;
     [SerializeField] private GameObject scannerPanel;
     private void Awake()
     {
         scannerPanel.SetActive(false);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
@@ -27,13 +24,11 @@ public class Scanner : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 999f, aimColliderLayerMask))
         {
             var scannedEnemy = hit.collider.gameObject.GetComponentInParent<Health>();
-            //Debug.Log(hit.collider.gameObject);
             if (hit.collider.gameObject.GetComponentInParent<Health>() != null)
             {
-                Debug.Log("scanned enemy");
+                enemyName.text = scannedEnemy.GetHealthSystem().GetHolder();
                 healthBarOfScannedEnemy.ReconfigureHealthHolder(scannedEnemy);
                 scannerPanel.SetActive(true);
-                //Debug.Log("sacnning....");
             }
             else
             {
