@@ -28,10 +28,10 @@ public abstract class Health : MonoBehaviour
     {
         return healthSystem;
     }
-    protected void StartDestructionProcess()
+    protected void StartDestructionProcess(HealthSystem hs)
     {
-        if(healthSystem.GetHealth() <= 0)
-        StartCoroutine(SelfDestroy());
+        if (hs.GetHealth() <= 0)
+            StartCoroutine(SelfDestroy());
     }
     protected virtual IEnumerator SelfDestroy()
     {

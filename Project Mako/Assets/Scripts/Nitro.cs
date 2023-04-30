@@ -12,7 +12,7 @@ public class Nitro : MonoBehaviour
     [SerializeField] private float nitroFuelMax;
     [SerializeField] private float nitroRegenerationAbility;
     [SerializeField] private float nitroFuelCurrent;
-    [SerializeField] private List<GameObject> enginesVisuals;
+    [SerializeField] private List<ParticleSystem> enginesVisuals;
     private void Awake()
     {
         playerRigidbody = GetComponentInParent<Rigidbody>();
@@ -20,19 +20,20 @@ public class Nitro : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         nitroFuelCurrent = nitroFuelMax;
-        enginesVisuals.ForEach(e => e.SetActive(false));
+        enginesVisuals.ForEach(e => e.Stop());
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool isNitroing = playerInputActions.Player.Nitro.ReadValue<float>() > 0.1f;
+        bool isPressingNitro = playerInputActions.Player.Nitro.ReadValue<float>() > 0.1f;
         bool hasSuffientAmountOfFuel = nitroFuelCurrent > 0;
-        if (isNitroing && hasSuffientAmountOfFuel)
+        bool doingNitro = isPressingNitro && hasSuffientAmountOfFuel;
+        if (doingNitro)
         {
             Vector3 nitroVector = transform.forward * nitroForce;
             playerRigidbody.AddForce(nitroVector, ForceMode.Acceleration);
-            enginesVisuals.ForEach(e => e.SetActive(true));
+            enginesVisuals.ForEach(e => e.Play());
             canRechargeFuel = false;
             nitroFuelCurrent -= Time.deltaTime * nitroRegenerationAbility;
             if (!audioSource.isPlaying)
@@ -40,7 +41,7 @@ public class Nitro : MonoBehaviour
         }
         else
         {
-            enginesVisuals.ForEach(e => e.SetActive(false));
+            enginesVisuals.ForEach(e => e.Stop());
             canRechargeFuel = true;
             nitroFuelCurrent += Time.deltaTime * nitroRegenerationAbility;
             if (audioSource.isPlaying)

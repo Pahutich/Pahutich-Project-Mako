@@ -14,7 +14,7 @@ public class Jump : MonoBehaviour
     [SerializeField] private float jumpFuelMax;
     [SerializeField] private float fuelRegenerationAbility;
     [SerializeField] private float jumpFuelCurrent;
-    [SerializeField] private List<GameObject> enginesVisuals;
+    [SerializeField] private List<ParticleSystem> enginesVisuals;
     private void Awake()
     {
         jumpingRigidbody = GetComponentInParent<Rigidbody>();
@@ -23,7 +23,7 @@ public class Jump : MonoBehaviour
         playerController = GetComponentInParent<PlayerController>();
         playerInputActions.Player.Enable();
         jumpFuelCurrent = jumpFuelMax;
-        enginesVisuals.ForEach(e => e.SetActive(false));
+        enginesVisuals.ForEach(e => e.Stop());
         //timeSinceReload = timeToWaitTillRefuel;
     }
 
@@ -62,7 +62,7 @@ public class Jump : MonoBehaviour
     {
         Vector3 jumpVector = transform.up * jumpForce;
         jumpingRigidbody.AddForce(jumpVector, ForceMode.Force);
-        enginesVisuals.ForEach(e => e.SetActive(true));
+        enginesVisuals.ForEach(e => e.Play());
         canRechargeFuel = false;
         jumpFuelCurrent -= Time.deltaTime * fuelRegenerationAbility;
         if (!audioSource.isPlaying)
@@ -72,7 +72,7 @@ public class Jump : MonoBehaviour
     private void DeactivateJump()
     {
         isJumping = false;
-        enginesVisuals.ForEach(e => e.SetActive(false));
+        enginesVisuals.ForEach(e => e.Stop());
         canRechargeFuel = true;
         if (playerController.IsGrounded())
             jumpFuelCurrent += Time.deltaTime * fuelRegenerationAbility;

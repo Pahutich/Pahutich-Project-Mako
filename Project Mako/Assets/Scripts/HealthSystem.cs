@@ -5,7 +5,7 @@ public class HealthSystem
 {
     private int healthMax;
     private int health;
-    public event Action OnHealthChanged;
+    public event Action<HealthSystem> OnHealthChanged;
     public event Action OnDead;
     public HealthSystem(int healthMax)
     {
@@ -26,8 +26,8 @@ public class HealthSystem
     public void Damage(int damageAmount)
     {
         health -= damageAmount;
-        OnHealthChanged?.Invoke();
-        if(health <= 0) 
+        OnHealthChanged?.Invoke(this);
+        if (health <= 0)
         {
             health = 0;
             OnDead?.Invoke();
@@ -37,7 +37,7 @@ public class HealthSystem
     public void Heal(int healAmount)
     {
         health += healAmount;
-        if(health > healthMax) health = healthMax;
-        OnHealthChanged?.Invoke();
+        if (health > healthMax) health = healthMax;
+        OnHealthChanged?.Invoke(this);
     }
 }
