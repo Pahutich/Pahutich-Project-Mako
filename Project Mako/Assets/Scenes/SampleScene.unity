@@ -6825,7 +6825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6142571137788114802, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: maxShieldCapacity
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
