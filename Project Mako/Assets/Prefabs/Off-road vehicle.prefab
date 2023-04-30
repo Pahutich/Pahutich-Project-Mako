@@ -822,6 +822,7 @@ GameObject:
   - component: {fileID: 5897335354898072379}
   - component: {fileID: 4393103402666838607}
   - component: {fileID: 4393103402666838604}
+  - component: {fileID: 2204719867009227892}
   m_Layer: 6
   m_Name: weapon_big
   m_TagString: Untagged
@@ -925,3 +926,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0034583, y: 0.3578918, z: 1.7415327}
   m_Center: {x: -0.005533129, y: 0.17898044, z: 0.38052803}
+--- !u!114 &2204719867009227892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884353539111440999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e208403ba1059135ba04cb3ed9001f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberToPool: 12
+  projectilePrefab: {fileID: 5486341854167531161, guid: dd0eb78d040bf8f5ba4c60ad5743adc3, type: 3}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ProjectilesPool))]
 public class Turret : MonoBehaviour
 {
     private const string PLAYERTAG = "Player";
@@ -22,9 +23,11 @@ public class Turret : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
+    private ProjectilesPool projectilesPool;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag(PLAYERTAG);
+        projectilesPool = GetComponent<ProjectilesPool>();
     }
     // Start is called before the first frame update
     void Start()
@@ -33,8 +36,8 @@ public class Turret : MonoBehaviour
     }
     private void UpdateTarget()
     {
-        if(player == null)
-        return;
+        if (player == null)
+            return;
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         if (distanceToPlayer <= range)
         {
@@ -59,11 +62,11 @@ public class Turret : MonoBehaviour
             Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
             transform.rotation = Quaternion.Euler(0, rotation.y, 0);
 
-            if(fireCountdown <= 0f)
+            if (fireCountdown <= 0f)
             {
                 Shoot();
-                fireCountdown = 1f/fireRate;
-                
+                fireCountdown = 1f / fireRate;
+
             }
             fireCountdown -= Time.deltaTime;
         }
@@ -71,11 +74,22 @@ public class Turret : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Projectile projectile = bulletGO.GetComponent<Projectile>();
-
-        if(projectile != null)
-        projectile.OnShot(player.transform.position - transform.position);
+        var spawnedProjectile = projectilesPool.GetPooledProjectiles();
+        if (spawnedProjectile)
+        {
+            spawnedProjectile.transform.position = firePoint.position;
+            spawnedProjectile.transform.rotation = Quaternion.identity;
+            spawnedProjectile.SetActive(true);
+            //workaround for bullet having children
+            if (spawnedProjectile.transform.childCount > 0)
+            {
+                foreach (Transform child in spawnedProjectile.transform)
+                {
+                    child.gameObject.SetActive(true);
+                }
+            }
+            spawnedProjectile.GetComponent<Projectile>().OnShot(player.transform.position - transform.position);
+        }
     }
 
     private void OnDrawGizmos()

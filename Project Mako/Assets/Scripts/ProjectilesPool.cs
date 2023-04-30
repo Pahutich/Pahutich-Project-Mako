@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Shooter))]
 public class ProjectilesPool : MonoBehaviour
 {
     private List<GameObject> pooledProjectiles = new List<GameObject>();
@@ -26,6 +25,7 @@ public class ProjectilesPool : MonoBehaviour
 
     public GameObject GetPooledProjectiles()
     {
+        //Debug.Log(pooledProjectiles[1]);
         for (int i = 0; i < pooledProjectiles.Count; i++)
         {
             if (!pooledProjectiles[i].activeInHierarchy)

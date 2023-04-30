@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ProjectilesPool))]
 public class Shooter : MonoBehaviour
 {
     private bool inOverheat = false;
