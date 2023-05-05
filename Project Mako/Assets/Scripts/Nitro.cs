@@ -5,6 +5,7 @@ using UnityEngine;
 public class Nitro : MonoBehaviour
 {
     private bool canRechargeFuel = true;
+    private bool doingNitro = false;
     private Rigidbody playerRigidbody;
     private AudioSource audioSource;
     private PlayerInputActions playerInputActions;
@@ -28,29 +29,44 @@ public class Nitro : MonoBehaviour
     {
         bool isPressingNitro = playerInputActions.Player.Nitro.ReadValue<float>() > 0.1f;
         bool hasSuffientAmountOfFuel = nitroFuelCurrent > 0;
-        bool doingNitro = isPressingNitro && hasSuffientAmountOfFuel;
-        if (doingNitro)
-        {
-            Vector3 nitroVector = transform.forward * nitroForce;
-            playerRigidbody.AddForce(nitroVector, ForceMode.Acceleration);
-            enginesVisuals.ForEach(e => e.Play());
-            canRechargeFuel = false;
-            nitroFuelCurrent -= Time.deltaTime * nitroRegenerationAbility;
-            if (!audioSource.isPlaying)
-                audioSource.Play();
-        }
-        else
-        {
-            enginesVisuals.ForEach(e => e.Stop());
-            canRechargeFuel = true;
-            nitroFuelCurrent += Time.deltaTime * nitroRegenerationAbility;
-            if (audioSource.isPlaying)
-                audioSource.Stop();
-        }
+        doingNitro = isPressingNitro && hasSuffientAmountOfFuel;
+
 
         if (nitroFuelCurrent > nitroFuelMax)
             nitroFuelCurrent = nitroFuelMax;
         if (nitroFuelCurrent < 0)
             nitroFuelCurrent = 0;
+    }
+
+    private void FixedUpdate()
+    {
+        if (doingNitro)
+        {
+            ActivateNitro();
+        }
+        else
+        {
+            DeactivateNitro();
+        }
+    }
+
+    private void DeactivateNitro()
+    {
+        enginesVisuals.ForEach(e => e.Stop());
+        canRechargeFuel = true;
+        nitroFuelCurrent += Time.deltaTime * nitroRegenerationAbility;
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+    }
+
+    private void ActivateNitro()
+    {
+        Vector3 nitroVector = transform.forward * nitroForce;
+        playerRigidbody.AddForce(nitroVector, ForceMode.Acceleration);
+        enginesVisuals.ForEach(e => e.Play());
+        canRechargeFuel = false;
+        nitroFuelCurrent -= Time.deltaTime * nitroRegenerationAbility;
+        if (!audioSource.isPlaying)
+            audioSource.Play();
     }
 }

@@ -21,9 +21,11 @@ public class Projectile : MonoBehaviour
         projectileRigidbody = GetComponent<Rigidbody>();
         hitBox = GetComponentInChildren<Collider>();
         meshRenderer = GetComponentInChildren<MeshRenderer>();
-        trailRenderer = GetComponent<TrailRenderer>();
+        trailRenderer = GetComponentInChildren<TrailRenderer>();
         drag = projectileRigidbody.drag;
         angularDrag = projectileRigidbody.angularDrag;
+        //transform.forward = projectileRigidbody.velocity;
+        //transform.rotation = Quaternion.LookRotation(projectileRigidbody.velocity);
     }
 
     private void OnEnable()
@@ -67,6 +69,10 @@ public class Projectile : MonoBehaviour
         {
             Instantiate(collisonDebugPrefab, transform.position, Quaternion.identity);
         }
+    }
+    void LateUpdate()
+    {
+        transform.right = projectileRigidbody.velocity.normalized;
     }
 
     public void OnShot(Vector3 direction)

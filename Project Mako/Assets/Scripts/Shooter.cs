@@ -2,7 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum WeaponType
+{
+    PRIMARY,
+    SECONDARY
+}
 [RequireComponent(typeof(ProjectilesPool))]
 public class Shooter : MonoBehaviour
 {
@@ -23,6 +27,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private LayerMask aimColliderLayerMask;
+    [field: SerializeField] private WeaponType weaponType = WeaponType.PRIMARY;
     public float currentOverheat = 0;
     public Action OnOverheatChanged;
     private void Awake()
@@ -42,7 +47,8 @@ public class Shooter : MonoBehaviour
     void Update()
     {
         ManageShootingCapability();
-        float shootInputValue = playerInputActions.Player.Shooting.ReadValue<float>();
+        float shootInputValue = weaponType == WeaponType.PRIMARY ? playerInputActions.Player.Shooting.ReadValue<float>() :
+        playerInputActions.Player.SecondaryShooting.ReadValue<float>();
 
         if (shootInputValue == 1)
         {
@@ -105,7 +111,7 @@ public class Shooter : MonoBehaviour
     {
         if (!canShoot)
             return;
-        aimDir = (mousePosition - spawnPosition.gameObject.transform.position).normalized;
+        aimDir = ((mousePosition - spawnPosition.gameObject.transform.position) + new Vector3(0, 0.5f, 0)).normalized;
         var spawnedProjectile = projectilesPool.GetPooledProjectiles();
         if (spawnedProjectile)
         {
@@ -121,6 +127,7 @@ public class Shooter : MonoBehaviour
                 }
             }
             spawnedProjectile.transform.LookAt(aimDir);
+            spawnedProjectile.transform.forward = transform.forward;
             spawnedProjectile.GetComponentInChildren<Projectile>().OnShot(aimDir);
             currentOverheat += overheatPerShot;
             canShoot = false;

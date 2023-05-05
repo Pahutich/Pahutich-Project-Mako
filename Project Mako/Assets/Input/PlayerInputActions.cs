@@ -71,6 +71,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondaryShooting"",
+                    ""type"": ""Button"",
+                    ""id"": ""b214c72b-c9e9-4b60-bc63-add6facfa0ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -194,6 +203,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Nitro"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""befb579b-654a-40b1-8388-75849f0b0506"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""SecondaryShooting"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -235,6 +255,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Nitro = m_Player.FindAction("Nitro", throwIfNotFound: true);
+        m_Player_SecondaryShooting = m_Player.FindAction("SecondaryShooting", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -299,6 +320,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Nitro;
+    private readonly InputAction m_Player_SecondaryShooting;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -308,6 +330,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Nitro => m_Wrapper.m_Player_Nitro;
+        public InputAction @SecondaryShooting => m_Wrapper.m_Player_SecondaryShooting;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -332,6 +355,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Nitro.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNitro;
                 @Nitro.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNitro;
                 @Nitro.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNitro;
+                @SecondaryShooting.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondaryShooting;
+                @SecondaryShooting.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondaryShooting;
+                @SecondaryShooting.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondaryShooting;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -351,6 +377,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Nitro.started += instance.OnNitro;
                 @Nitro.performed += instance.OnNitro;
                 @Nitro.canceled += instance.OnNitro;
+                @SecondaryShooting.started += instance.OnSecondaryShooting;
+                @SecondaryShooting.performed += instance.OnSecondaryShooting;
+                @SecondaryShooting.canceled += instance.OnSecondaryShooting;
             }
         }
     }
@@ -380,5 +409,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnNitro(InputAction.CallbackContext context);
+        void OnSecondaryShooting(InputAction.CallbackContext context);
     }
 }
