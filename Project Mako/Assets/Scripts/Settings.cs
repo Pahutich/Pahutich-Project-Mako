@@ -24,7 +24,6 @@ public class Settings : MonoBehaviour
         float sliderStartValue = 0f;
         mixer.GetFloat(parameterName, out sliderStartValue);
         sliderStartValue = Mathf.Exp(sliderStartValue / 20);
-        Debug.Log(sliderStartValue);
         sliderToSetup.value = sliderStartValue;
     }
 

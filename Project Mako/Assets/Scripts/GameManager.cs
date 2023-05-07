@@ -6,7 +6,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private bool gameIsPaused = false;
+    public bool GameIsPaused { get; private set; } = false;
     private GameObject player;
     private Health playerHealth;
     [SerializeField] private GameObject gameOverPanel;
@@ -40,9 +40,9 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        if (!gameIsPaused)
+        if (!GameIsPaused)
         {
-            gameIsPaused = true;
+            GameIsPaused = true;
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
             pauseOrLossText.text = PauseText;
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            gameIsPaused = false;
+            GameIsPaused = false;
             Time.timeScale = 1;
             gameOverPanel.SetActive(false);
             Cursor.visible = false;
@@ -62,12 +62,6 @@ public class GameManager : MonoBehaviour
         pauseOrLossText.text = LossText;
         pauseOrLossText.color = Color.red;
         gameOverPanel.SetActive(true);
-    }
-    public void StartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1;
-        gameOverPanel.SetActive(false);
     }
 
     public void Quit()

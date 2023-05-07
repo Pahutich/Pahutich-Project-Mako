@@ -20,6 +20,7 @@ public class Shooter : MonoBehaviour
     private PlayerInputActions playerInputActions;
     private CanonBaseRotator canonBaseRotator;
     private ProjectilesPool projectilesPool;
+    private GameManager gameManager;
     [SerializeField] private float cooldown;
     [SerializeField] private float overheatThreshold;
     [SerializeField] private float overheatPerShot;
@@ -36,6 +37,7 @@ public class Shooter : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         canonBaseRotator = GetComponent<CanonBaseRotator>();
         projectilesPool = GetComponent<ProjectilesPool>();
+        gameManager = FindObjectOfType<GameManager>();
         playerInputActions.Player.Enable();
     }
 
@@ -68,6 +70,11 @@ public class Shooter : MonoBehaviour
     }
     private void ManageShootingCapability()
     {
+        if (gameManager.GameIsPaused)
+        {
+            canShoot = false;
+            return;
+        }
         float overheatCooldownMultiplier;
 
         if (inOverheat && currentOverheat <= 0)
