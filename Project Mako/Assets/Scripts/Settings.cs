@@ -1,28 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class Settings : MonoBehaviour
 {
-    [SerializeField] private AudioMixer mixer;
     private const string exposedGeneralParameterName = "masterVolume";
     private const string exposedSfxParameterName = "sfxVolume";
     private const string exposedMusicVolumeParameterName = "musicVolume";
+    [SerializeField] private AudioMixer mixer;
     [SerializeField] private Slider generalVolumeSlider;
     [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
-    // Start is called before the first frame update
-    void Start()
+
+    void OnEnable()
     {
-        //mixer.FindMatchingGroups()
+        SetupInitialSliderValue(exposedGeneralParameterName, ref generalVolumeSlider);
+        SetupInitialSliderValue(exposedSfxParameterName, ref sfxVolumeSlider);
+        SetupInitialSliderValue(exposedMusicVolumeParameterName, ref musicVolumeSlider);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetupInitialSliderValue(string parameterName, ref Slider sliderToSetup)
     {
-
+        float sliderStartValue = 0f;
+        mixer.GetFloat(parameterName, out sliderStartValue);
+        sliderStartValue = Mathf.Exp(sliderStartValue / 20);
+        Debug.Log(sliderStartValue);
+        sliderToSetup.value = sliderStartValue;
     }
 
     public void ConfigureGeneralVolume()
