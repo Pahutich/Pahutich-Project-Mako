@@ -4366,6 +4366,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1587824786}
     m_Modifications:
+    - target: {fileID: 4289172698505015372, guid: b580fc5c2b3f1d7cc925939ad4763fe7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4289172699100741274, guid: b580fc5c2b3f1d7cc925939ad4763fe7, type: 3}
       propertyPath: m_Name
       value: Settings panel
@@ -4452,6 +4456,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4289172699100741275, guid: b580fc5c2b3f1d7cc925939ad4763fe7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289172699290385235, guid: b580fc5c2b3f1d7cc925939ad4763fe7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289172699484633027, guid: b580fc5c2b3f1d7cc925939ad4763fe7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289172699538391932, guid: b580fc5c2b3f1d7cc925939ad4763fe7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289172699655875302, guid: b580fc5c2b3f1d7cc925939ad4763fe7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289172699984578611, guid: b580fc5c2b3f1d7cc925939ad4763fe7, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
