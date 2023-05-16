@@ -8213,7 +8213,7 @@ PrefabInstance:
     - target: {fileID: 1534709652778984992, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 1701869147951650549, guid: 381138c4bd07afe5584beef4959b9e8c, type: 3}
+      objectReference: {fileID: 1701869147951650549, guid: 86ac7b37738664fb78f4b8242819425a, type: 3}
     - target: {fileID: 3453318456927427487, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: speedText
       value: 
@@ -8301,7 +8301,7 @@ PrefabInstance:
     - target: {fileID: 5943602078314654157, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 1701869147951650549, guid: 381138c4bd07afe5584beef4959b9e8c, type: 3}
+      objectReference: {fileID: 1701869147951650549, guid: 86ac7b37738664fb78f4b8242819425a, type: 3}
     - target: {fileID: 6142571137788114802, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: m_Enabled
       value: 1

@@ -7,28 +7,26 @@ public class Projectile : MonoBehaviour
     private float drag;
     private float angularDrag;
     private float timer;
-    private Rigidbody projectileRigidbody;
+    protected Rigidbody projectileRigidbody;
     private Collider hitBox;
     private MeshRenderer meshRenderer;
     private TrailRenderer trailRenderer;
     [SerializeField] private bool debuggingAiming = false;
-    [SerializeField] private float speed;
+    [SerializeField] protected float speed;
     [SerializeField] private float timeToDisappear = 3f;
     [SerializeField] private int damageToDeal;
     [SerializeField] private GameObject collisonDebugPrefab;
-    private void Awake()
+    protected virtual void Awake()
     {
-        projectileRigidbody = GetComponent<Rigidbody>();
+        projectileRigidbody = GetComponentInChildren<Rigidbody>();
         hitBox = GetComponentInChildren<Collider>();
         meshRenderer = GetComponentInChildren<MeshRenderer>();
         trailRenderer = GetComponentInChildren<TrailRenderer>();
         drag = projectileRigidbody.drag;
         angularDrag = projectileRigidbody.angularDrag;
-        //transform.forward = projectileRigidbody.velocity;
-        //transform.rotation = Quaternion.LookRotation(projectileRigidbody.velocity);
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         meshRenderer.enabled = true;
         hitBox.enabled = true;
@@ -38,7 +36,7 @@ public class Projectile : MonoBehaviour
         timer = 0f;
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         meshRenderer.enabled = false;
         hitBox.enabled = false;
@@ -70,12 +68,7 @@ public class Projectile : MonoBehaviour
             Instantiate(collisonDebugPrefab, transform.position, Quaternion.identity);
         }
     }
-    void LateUpdate()
-    {
-        transform.right = projectileRigidbody.velocity.normalized;
-    }
-
-    public void OnShot(Vector3 direction)
+    public virtual void OnShot(Vector3 direction)
     {
         projectileRigidbody.AddForce(direction * speed, ForceMode.Impulse);
     }

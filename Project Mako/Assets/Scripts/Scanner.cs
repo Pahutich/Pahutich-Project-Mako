@@ -10,6 +10,7 @@ public class Scanner : MonoBehaviour
     [SerializeField] private HealthBar healthBarOfScannedEnemy;
     [SerializeField] private TextMeshProUGUI enemyName;
     [SerializeField] private GameObject scannerPanel;
+    [field: SerializeField] public Health ScannedEnemy { get; private set; }
     private void Awake()
     {
         scannerPanel.SetActive(false);
@@ -23,11 +24,11 @@ public class Scanner : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 999f, aimColliderLayerMask))
         {
-            var scannedEnemy = hit.collider.gameObject.GetComponentInParent<Health>();
+            ScannedEnemy = hit.collider.gameObject.GetComponentInParent<Health>();
             if (hit.collider.gameObject.GetComponentInParent<Health>() != null)
             {
-                enemyName.text = scannedEnemy.GetHealthSystem().GetHolder();
-                healthBarOfScannedEnemy.ReconfigureHealthHolder(scannedEnemy);
+                enemyName.text = ScannedEnemy.GetHealthSystem().GetHolder();
+                healthBarOfScannedEnemy.ReconfigureHealthHolder(ScannedEnemy);
                 scannerPanel.SetActive(true);
             }
             else
