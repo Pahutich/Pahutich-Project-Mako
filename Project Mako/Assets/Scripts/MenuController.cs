@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
     public static MenuController instance;
+    public GameObject sideWindow = null;
     private void Awake()
     {
         //Singleton method
@@ -29,6 +30,18 @@ public class MenuController : MonoBehaviour
         bool toEnable = false;
         toEnable = obj.activeInHierarchy ? false : true;
         obj.SetActive(toEnable);
+        if (toEnable == false)
+        {
+            sideWindow = null;
+        }
+        else
+        {
+            if (sideWindow != null)
+            {
+                sideWindow.SetActive(false);
+            }
+            sideWindow = obj;
+        }
     }
     public void RestartScene()
     {

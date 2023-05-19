@@ -71,6 +71,7 @@ public class Projectile : MonoBehaviour
     public virtual void OnShot(Vector3 direction)
     {
         projectileRigidbody.AddForce(direction * speed, ForceMode.Impulse);
+        //projectileRigidbody.transform.LookAt(direction);
     }
 
     private IEnumerator SelfDestroy()

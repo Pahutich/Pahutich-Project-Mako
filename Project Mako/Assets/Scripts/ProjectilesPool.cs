@@ -6,7 +6,7 @@ public class ProjectilesPool : MonoBehaviour
 {
     private List<GameObject> pooledProjectiles = new List<GameObject>();
     [SerializeField] private int numberToPool = 12;
-    [SerializeField] private GameObject projectilePrefab;
+    [HideInInspector] public GameObject projectilePrefab;
     // Start is called before the first frame update
     void Start()
     {

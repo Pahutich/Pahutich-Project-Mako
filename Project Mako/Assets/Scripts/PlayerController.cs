@@ -15,10 +15,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnCarAfteXSeconds = 3f;
     [SerializeField] private Vector3 min;
     [SerializeField] private Vector3 max;
+    [SerializeField] private GameObject weaponHolder;
     private float carUpsideDownTimer = 0f;
     private Rigidbody playerRigidbody;
     private CameraFollow cameraFollow;
     private AudioSource audioSource;
+    private OverheatBar overheatBar;
     Vector2 inputVector = Vector2.zero;
     private float speed = 0f;
     [SerializeField] private WheelCollider[] wheelColliders = new WheelCollider[6];
@@ -30,6 +32,19 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         cameraFollow = FindObjectOfType<CameraFollow>();
         audioSource = GetComponent<AudioSource>();
+        overheatBar = FindObjectOfType<OverheatBar>();
+    }
+
+    private void OnEnable()
+    {
+        GameObject primaryWeapon = Instantiate(Inventory.instance.GetPrimaryWeapon(),
+        weaponHolder.transform.position, Quaternion.identity);
+        GameObject secondaryWeapon = Instantiate(Inventory.instance.GetSecondaryWeapon(),
+        weaponHolder.transform.position, Quaternion.identity);
+        primaryWeapon.transform.parent = weaponHolder.transform;
+        secondaryWeapon.transform.parent = weaponHolder.transform;
+        overheatBar.overheatableWeapon = primaryWeapon.GetComponent<Shooter>();
+
     }
     private void Start()
     {

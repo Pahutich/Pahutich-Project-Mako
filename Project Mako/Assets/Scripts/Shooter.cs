@@ -33,12 +33,14 @@ public class Shooter : MonoBehaviour
     public Action OnOverheatChanged;
     private void Awake()
     {
+        spawnPosition = GameObject.FindGameObjectWithTag("Projectile spawn pos").transform;
         audioSource = GetComponent<AudioSource>();
         playerInputActions = new PlayerInputActions();
         canonBaseRotator = GetComponent<CanonBaseRotator>();
         projectilesPool = GetComponent<ProjectilesPool>();
         gameManager = FindObjectOfType<GameManager>();
         playerInputActions.Player.Enable();
+        projectilesPool.projectilePrefab = projectile;
     }
 
     void Start()
@@ -134,7 +136,7 @@ public class Shooter : MonoBehaviour
                 }
             }
             spawnedProjectile.transform.LookAt(aimDir);
-            spawnedProjectile.transform.forward = transform.forward;
+            spawnedProjectile.transform.forward = transform.right * -1;
             spawnedProjectile.GetComponentInChildren<Projectile>().OnShot(aimDir);
             currentOverheat += overheatPerShot;
             canShoot = false;

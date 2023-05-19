@@ -310,11 +310,11 @@ MonoBehaviour:
   timeToDisappear: 10
   damageToDeal: 12
   collisonDebugPrefab: {fileID: 5526593647880425776, guid: f4f0d62f9fead33f39bbc2d06847c2e3, type: 3}
-  rotationSpeed: 85
+  rotationSpeed: 140
   scanner: {fileID: 0}
   maxDistancePredict: 100
   minDistancePredict: 5
-  maxTimePrediction: 1
+  maxTimePrediction: 0.2
   deviationAmount: 0
   deviationSpeed: 0
 --- !u!1 &1759332766148532629

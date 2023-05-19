@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class OverheatBar : MonoBehaviour
 {
-    [SerializeField] private Shooter shooter;
+    [HideInInspector] public Shooter overheatableWeapon;
     [SerializeField] private Image overheatBarImage;
     [SerializeField] private RawImage iconColor;
     // Start is called before the first frame update
     void Start()
     {
-        shooter.OnOverheatChanged += () => overheatBarImage.fillAmount = shooter.GetOverheatPercent();
-        shooter.OnOverheatChanged += () => iconColor.color = shooter.GetOverhearStatus() ? iconColor.color = Color.red : iconColor.color = Color.white;
+        overheatableWeapon.OnOverheatChanged += () => overheatBarImage.fillAmount = overheatableWeapon.GetOverheatPercent();
+        overheatableWeapon.OnOverheatChanged += () => iconColor.color = overheatableWeapon.GetOverhearStatus() ? iconColor.color = Color.red : iconColor.color = Color.white;
     }
 }
