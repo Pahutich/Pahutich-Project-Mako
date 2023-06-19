@@ -3624,6 +3624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3230635f1043ee2d4aeaeb4c5faffb2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sideWindow: {fileID: 0}
 --- !u!4 &1114120206
 Transform:
   m_ObjectHideFlags: 0
@@ -3989,7 +3990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 452dbdb23a67045d9b7554261f487150, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57ff8e0f1826a7367b45548764d155d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5518,8 +5519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8690c6a27dcd46ed38dc42514509be83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryWeaponSlot: {fileID: 0}
-  secondaryWeaponSlot: {fileID: 0}
   <PrimaryWeapons>k__BackingField:
   - {fileID: 4524803223407858836, guid: 5ca59010204aa45a1beff9468378c41a, type: 3}
   <SecondaryWeapons>k__BackingField:
@@ -7442,6 +7441,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1099222378}
     m_Modifications:
+    - target: {fileID: 884152545817267868, guid: fb818fd393480485f96f64db369c7d9a, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 3684101563d6e6c9eab79c91e6d57523, type: 3}
     - target: {fileID: 6287937609701866198, guid: fb818fd393480485f96f64db369c7d9a, type: 3}
       propertyPath: player
       value: 
@@ -7860,6 +7863,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1099222378}
     m_Modifications:
+    - target: {fileID: 4910263628483179222, guid: 3075717bfe50f685db7a3cba45c13e04, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 67e5a338f2eb683a5a42058f0db674f0, type: 3}
     - target: {fileID: 4910263628483179223, guid: 3075717bfe50f685db7a3cba45c13e04, type: 3}
       propertyPath: m_SizeDelta.x
       value: 80
@@ -8169,6 +8176,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5823345552500603807, guid: fb40ac93271eeae8697549885414e3be, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 195bde6f09785e146836c0e77a737670, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb40ac93271eeae8697549885414e3be, type: 3}
 --- !u!4 &5883057705004049406 stripped
@@ -8324,6 +8335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5883057705004049411, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2091859788}
     - target: {fileID: 5883057705004049415, guid: ab3f916bafc15008da60a0139f348d72, type: 3}
       propertyPath: healthHolderName
       value: Player
