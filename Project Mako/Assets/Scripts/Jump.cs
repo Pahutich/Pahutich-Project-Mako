@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,16 +23,15 @@ public class Jump : MonoBehaviour
         playerInputActions.Player.Enable();
         jumpFuelCurrent = jumpFuelMax;
         enginesVisuals.ForEach(e => e.Stop());
-        //timeSinceReload = timeToWaitTillRefuel;
     }
 
     // Update is called once per frame
     void Update()
     {
         bool jumpInputActivated = playerInputActions.Player.Jump.ReadValue<float>() > 0.1f;
-        bool hasSuffientAmountOfFuel = jumpFuelCurrent > 0;
+        bool hasSufficientAmountOfFuel = jumpFuelCurrent > 0;
 
-        if (jumpInputActivated && hasSuffientAmountOfFuel)
+        if (jumpInputActivated && hasSufficientAmountOfFuel)
         {
             isJumping = true;
         }

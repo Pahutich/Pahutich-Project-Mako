@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
@@ -25,9 +23,5 @@ public class DontDestroy : MonoBehaviour
             }
         }
         DontDestroyOnLoad(gameObject);
-    }
-    private void OnDestroy()
-    {
-        Debug.Log("taht's how i lose reference");
     }
 }

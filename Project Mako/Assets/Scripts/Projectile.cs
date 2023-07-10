@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -71,14 +70,13 @@ public class Projectile : MonoBehaviour
     public virtual void OnShot(Vector3 direction)
     {
         projectileRigidbody.AddForce(direction * speed, ForceMode.Impulse);
-        //projectileRigidbody.transform.LookAt(direction);
     }
 
     private IEnumerator SelfDestroy()
     {
         PrepareToDisableProjectile();
         yield return new WaitForSeconds(1);
-        //workaround for bullet being not a single object
+        //a workaround for bullet being not a single object
         if (transform.parent != null)
         {
             transform.parent.gameObject.SetActive(false);

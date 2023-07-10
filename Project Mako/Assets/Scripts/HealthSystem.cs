@@ -1,4 +1,3 @@
-
 using System;
 
 public class HealthSystem
@@ -40,7 +39,6 @@ public class HealthSystem
             OnDead?.Invoke();
         }
     }
-
     public void Heal(int healAmount)
     {
         health += healAmount;

@@ -2531,8 +2531,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edca4bde315061edbe77956acb21bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameoverPanel: {fileID: 287420708}
+  gameOverPanel: {fileID: 287420708}
   gameOverText: {fileID: 2049019895}
+  resumeButton: {fileID: 291255247}
 --- !u!4 &709966436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7772386242623694493, guid: 47139e4565fac1eae8e73a391f2d8f1c, type: 3}
@@ -6840,7 +6841,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -663.10614, y: 0, z: -665.7204, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

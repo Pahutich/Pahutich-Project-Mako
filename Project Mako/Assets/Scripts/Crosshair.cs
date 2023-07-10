@@ -14,8 +14,6 @@ public class Crosshair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
-        // Ray ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
         transform.position = Mouse.current.position.ReadValue();
     }
 }

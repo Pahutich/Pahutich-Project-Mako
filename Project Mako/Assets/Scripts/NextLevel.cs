@@ -1,28 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class NextLevel : MonoBehaviour
 {
     private Collider hitBox;
-    [SerializeField] private GameObject gameoverPanel;
+    [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private Button resumeButton;
 
     private void Awake()
     {
         hitBox = GetComponent<Collider>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,7 +24,8 @@ public class NextLevel : MonoBehaviour
     private void FinishLevel()
     {
         Time.timeScale = 0;
+        resumeButton.gameObject.SetActive(false);
         gameOverText.text = "Congratulations! You've completed the demo level!";
-        gameoverPanel.SetActive(true);
+        gameOverPanel.SetActive(true);
     }
 }

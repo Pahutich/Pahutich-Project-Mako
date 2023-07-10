@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Health : MonoBehaviour
@@ -47,10 +46,8 @@ public abstract class Health : MonoBehaviour
         foreach (Transform item in transform)
         {
             Destroy(item.gameObject);
-            //item.gameObject.SetActive(false);
         }
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
-        //gameObject.SetActive(false);
     }
 }
