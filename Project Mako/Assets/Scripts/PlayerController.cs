@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform centerOfMass;
     [SerializeField] private TextMeshProUGUI speedText;
     [SerializeField] private float airSteeringForce;
-    [SerializeField] private float turnCarAfteXSeconds = 3f;
+    [SerializeField] private float turnCarAfterXSeconds = 3f;
     [SerializeField] private Vector3 min;
     [SerializeField] private Vector3 max;
     [SerializeField] private GameObject weaponHolder;
@@ -152,7 +152,7 @@ public class PlayerController : MonoBehaviour
         if (Vector3.Dot(transform.up, Vector3.down) > 0 && !IsGrounded() && playerRigidbody.velocity.magnitude <= Math.Abs(0.1))
         {
             carUpsideDownTimer += Time.deltaTime;
-            if (carUpsideDownTimer >= turnCarAfteXSeconds)
+            if (carUpsideDownTimer >= turnCarAfterXSeconds)
             {
                 transform.rotation = Quaternion.identity;
                 playerRigidbody.velocity = Vector3.zero;
