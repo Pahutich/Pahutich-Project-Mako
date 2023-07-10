@@ -7,19 +7,17 @@ public class Medkit : MonoBehaviour, ICollectable
     private MeshRenderer meshRenderer;
     private Collider hitBox;
     private AudioSource audioSource;
+    private Health playerHealth;
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         hitBox = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
+        playerHealth = FindObjectOfType<PlayerController>().gameObject.GetComponent<Health>();
     }
-    public void Collect<T>(T health)
+    public void Collect()
     {
-        if(!typeof(T).Equals(typeof(Health)))
-        return;
-
-        var healthConverted = (Health)(object)health;
-        healthConverted.GetHealthSystem().Heal(amountToHeal);
+        playerHealth.GetHealthSystem().Heal(amountToHeal);
         audioSource.Play();
         meshRenderer.enabled = false;
         hitBox.enabled = false;
@@ -34,9 +32,9 @@ public class Medkit : MonoBehaviour, ICollectable
     private void OnTriggerEnter(Collider other)
     {
         var encounteredHealthEntity = other.GetComponent<Health>();
-        if (encounteredHealthEntity)
+        if (encounteredHealthEntity == playerHealth)
         {
-            Collect<Health>(encounteredHealthEntity);
+            Collect();
         }
     }
 }

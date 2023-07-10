@@ -7,22 +7,20 @@ public class WeaponCooler : MonoBehaviour, ICollectable
     private MeshRenderer meshRenderer;
     private Collider hitBox;
     private AudioSource audioSource;
+    private Shooter playerGun;
+
     private void Awake() {
         meshRenderer = GetComponent<MeshRenderer>();
         hitBox = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
+        playerGun = FindObjectOfType<PlayerController>().gameObject.GetComponentInChildren<Shooter>();
     }
-    public void Collect<T>(T shooter)
+    public void Collect()
     {
-        if(!typeof(T).Equals(typeof(Shooter)))
-        return;
-
-        var shooterConverted = (Shooter)(object)shooter;
-        shooterConverted.currentOverheat -= amountToCool;
+        playerGun.currentOverheat -= amountToCool;
         audioSource.Play();
         meshRenderer.enabled = false;
         hitBox.enabled = false;
-
         StartCoroutine(SelfDestroy());
     }
     private IEnumerator SelfDestroy()
@@ -33,9 +31,9 @@ public class WeaponCooler : MonoBehaviour, ICollectable
 
     private void OnTriggerEnter(Collider other) {
         var encounteredGunOwner = other.GetComponentInChildren<Shooter>();
-        if(encounteredGunOwner)
+        if(encounteredGunOwner == playerGun)
         {
-            Collect<Shooter>(encounteredGunOwner);
+            Collect();
         }
     }
 }
