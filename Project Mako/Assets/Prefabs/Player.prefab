@@ -14508,7 +14508,7 @@ GameObject:
   - component: {fileID: 8126607992821089460}
   - component: {fileID: 492607184304746956}
   m_Layer: 3
-  m_Name: Jump
+  m_Name: Jumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14538,12 +14538,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2163560690978307420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94b99b6fee4eebae0ae6799bbcea123b, type: 3}
+  m_Script: {fileID: 11500000, guid: 356b13afccb332e2eb8dc03fd2dfb08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 120000
-  jumpFuelMax: 200
-  fuelRegenerationAbility: 40
+  jumpForce: 175
+  jumpFuelMax: 15
+  fuelRegenerationAbility: 10
   jumpFuelCurrent: 0
   enginesVisuals:
   - {fileID: 2440962937055706804}
@@ -20157,7 +20157,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 3453318458727711433}
   speedText: {fileID: 0}
   airSteeringForce: 0.2
-  turnCarAfteXSeconds: 3
+  turnCarAfterXSeconds: 3
   min: {x: 0, y: -1, z: 0}
   max: {x: 300, y: 25, z: 400}
   weaponHolder: {fileID: 0}

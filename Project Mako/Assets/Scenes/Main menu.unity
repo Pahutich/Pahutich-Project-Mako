@@ -4065,7 +4065,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1681660826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38643cfb3cef990f8a600fefb1ebe0f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 47de1b24d11201df89fc70a98c32d768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1681660828
@@ -5548,10 +5548,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PrimaryWeapons>k__BackingField:
-  - {fileID: 4524803223407858836, guid: 5ca59010204aa45a1beff9468378c41a, type: 3}
+  - {fileID: 1213135231779275363, guid: 5ca59010204aa45a1beff9468378c41a, type: 3}
   <SecondaryWeapons>k__BackingField:
-  - {fileID: 1714672261109056386, guid: 2336054a68fb4eb4fa10db8e844a0e34, type: 3}
-  - {fileID: 1714672261109056386, guid: ba341379f442ec209a128ae3bffb6db5, type: 3}
+  - {fileID: 2275949397315989784, guid: 2336054a68fb4eb4fa10db8e844a0e34, type: 3}
+  - {fileID: 2275949397315989784, guid: ba341379f442ec209a128ae3bffb6db5, type: 3}
   primaryWeaponIndex: 0
   secondaryWeaponIndex: 0
 --- !u!4 &2130275527

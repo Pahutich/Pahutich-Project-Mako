@@ -57,7 +57,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4524803223407858836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 836ff97c00a2d11ce86f91c24996cdfb, type: 3}
+  m_Script: {fileID: 11500000, guid: b2f671151661d0ab18b56d8c6d61168c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0.1
@@ -68,7 +68,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 0}
   aimColliderLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2147483647
   weaponType: 0
   currentOverheat: 0
 --- !u!82 &3332209954474916770

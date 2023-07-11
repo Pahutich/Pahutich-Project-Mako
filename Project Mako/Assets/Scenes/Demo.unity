@@ -5521,10 +5521,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PrimaryWeapons>k__BackingField:
-  - {fileID: 4524803223407858836, guid: 5ca59010204aa45a1beff9468378c41a, type: 3}
+  - {fileID: 1213135231779275363, guid: 5ca59010204aa45a1beff9468378c41a, type: 3}
   <SecondaryWeapons>k__BackingField:
-  - {fileID: 1714672261109056386, guid: 2336054a68fb4eb4fa10db8e844a0e34, type: 3}
-  - {fileID: 1714672261109056386, guid: ba341379f442ec209a128ae3bffb6db5, type: 3}
+  - {fileID: 2275949397315989784, guid: 2336054a68fb4eb4fa10db8e844a0e34, type: 3}
+  - {fileID: 2275949397315989784, guid: ba341379f442ec209a128ae3bffb6db5, type: 3}
   primaryWeaponIndex: 0
   secondaryWeaponIndex: 0
 --- !u!4 &1612154480
