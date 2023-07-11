@@ -1,4 +1,3 @@
-using Mako.Miscellaneous;
 using Mako.Movement;
 using Mako.Shooting;
 using UnityEngine;
@@ -19,12 +18,7 @@ namespace Mako.UI
     // Start is called before the first frame update
     void OnEnable()
     {
-      //playerController.OnOverheatableWeaponSet += Inventory.instance.GetPrimaryWeapon;
       AssignMainWeapon();
-      //Inventory.instance.GetPrimaryWeapon();
-      //Debug.Log("primary weapon: " + overheatableWeapon);
-      
-      //Debug.Log("events assigned");
     }
 
     private void AssignMainWeapon()
