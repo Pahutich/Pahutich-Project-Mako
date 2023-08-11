@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Mako.Shooting
 {
-
   public class HomingMissile : Projectile
   {
     [Header("MOVEMENT")]

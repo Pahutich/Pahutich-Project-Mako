@@ -30,11 +30,30 @@ namespace Mako.Miscellaneous
     public int secondaryWeaponIndex = 0;
     public Shooter GetPrimaryWeapon()
     {
-      return PrimaryWeapons[primaryWeaponIndex];
+      Shooter returnWeapon = null;
+      if(PrimaryWeapons[primaryWeaponIndex] != null)
+      {
+        returnWeapon = PrimaryWeapons[primaryWeaponIndex];
+      }
+      else
+      {
+        returnWeapon = PrimaryWeapons[0];
+      }
+        
+      return returnWeapon;
     }
     public Shooter GetSecondaryWeapon()
     {
-      return SecondaryWeapons[secondaryWeaponIndex];
+      Shooter returnWeapon = null;
+      if(SecondaryWeapons[secondaryWeaponIndex] != null)
+      {
+        returnWeapon = SecondaryWeapons[secondaryWeaponIndex];
+      }
+      else
+      {
+        returnWeapon = SecondaryWeapons[0];
+      }
+      return returnWeapon;
     }
   }
 }

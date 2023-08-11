@@ -39,15 +39,16 @@ namespace Mako.Movement
 
     private void OnEnable()
     {
+      if(Inventory.instance == null)
+      {
+        Inventory.instance = FindObjectOfType(typeof(Inventory)) as Inventory;
+      }
       GameObject primaryWeapon = Instantiate(Inventory.instance.GetPrimaryWeapon().gameObject,
       weaponHolder.transform.position, Quaternion.identity);
-      GameObject secondaryWeapon = Instantiate(Inventory.instance.GetSecondaryWeapon().gameObject   ,
+      GameObject secondaryWeapon = Instantiate(Inventory.instance.GetSecondaryWeapon().gameObject,
       weaponHolder.transform.position, Quaternion.identity);
       primaryWeapon.transform.parent = weaponHolder.transform;
       secondaryWeapon.transform.parent = weaponHolder.transform;
-      //OnOverheatableWeaponSet?.Invoke(primaryWeapon);
-      //overheatBar.overheatableWeapon = primaryWeapon.GetComponent<Shooter>();
-
     }
     private void Start()
     {
