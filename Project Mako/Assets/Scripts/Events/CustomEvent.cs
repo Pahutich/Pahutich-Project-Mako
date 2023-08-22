@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Mako.Events
 {
   [CreateAssetMenu(fileName = "New Event", menuName = "Game Event", order = 52)]
-  public class Event : ScriptableObject
+  public class CustomEvent : ScriptableObject
   {
     private List<EventListener> eventListeners = new List<EventListener>();
 

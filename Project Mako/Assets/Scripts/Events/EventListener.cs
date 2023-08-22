@@ -10,7 +10,7 @@ namespace Mako.Events
 {
   public class EventListener : MonoBehaviour
   {
-    public Event gEvent;
+    public CustomEvent gEvent;
     public UnityGameObjectEvent response = new UnityGameObjectEvent();
 
     private void OnEnable()

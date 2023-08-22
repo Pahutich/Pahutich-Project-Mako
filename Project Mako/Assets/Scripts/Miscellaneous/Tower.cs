@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Mako.Movement;
 using Mako.Events;
 using UnityEngine;
-using Event = Mako.Events.Event;
+using CustomEvent = Mako.Events.CustomEvent;
 using Unity.VisualScripting;
 
 namespace Mako.Miscellaneous
@@ -14,8 +14,8 @@ namespace Mako.Miscellaneous
     [SerializeField] private float range;
     private bool isPlayerInZone = false;
     private PlayerController player;
-    public Event OnPlayerEnteredRange;
-    public Event OnPlayerLeftRange;
+    public CustomEvent OnPlayerEnteredRange;
+    public CustomEvent OnPlayerLeftRange;
     void Awake()
     {
       player = GameObject.FindObjectOfType<PlayerController>();
