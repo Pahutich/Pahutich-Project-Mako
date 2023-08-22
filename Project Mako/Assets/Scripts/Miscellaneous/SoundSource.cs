@@ -21,6 +21,13 @@ namespace Mako.Miscellaneous
       var soundListeners = GameObject.FindObjectsOfType<SoundListener>().ToList();
       foreach (SoundListener sl in soundListeners)
       {
+        if(sl == GetComponent<SoundListener>())
+        {
+            soundListeners.Remove(sl);
+        }
+      }
+      foreach (SoundListener sl in soundListeners)
+      {
         if (Vector3.Distance(transform.position, sl.transform.position) <= range)
         {
           OnSoundDistributed.Occurred(gameObject);
@@ -35,8 +42,5 @@ namespace Mako.Miscellaneous
     private void OnCollisionEnter(Collision other) {
         DistributeSound();
     }
-    // private void OnDisable() {
-    //     DistributeSound();
-    // }
   }
 }
