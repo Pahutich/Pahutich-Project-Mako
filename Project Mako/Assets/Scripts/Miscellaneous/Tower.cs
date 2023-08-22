@@ -5,7 +5,6 @@ using Mako.Movement;
 using Mako.Events;
 using UnityEngine;
 using CustomEvent = Mako.Events.CustomEvent;
-using Unity.VisualScripting;
 
 namespace Mako.Miscellaneous
 {

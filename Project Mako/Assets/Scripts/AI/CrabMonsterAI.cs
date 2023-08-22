@@ -22,5 +22,9 @@ namespace Mako.AI
     {
       currentState = currentState.Process();
     }
+    public void GoOnSound()
+    {
+      currentState.heardPlayer = true;
+    }
   }
 }

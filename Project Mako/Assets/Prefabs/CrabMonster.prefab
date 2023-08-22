@@ -789,7 +789,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3330919925356366133}
   - component: {fileID: 3414550071583066383}
-  - component: {fileID: 3431790086942627671}
   - component: {fileID: 3431790086942627675}
   - component: {fileID: 3431790086942627674}
   - component: {fileID: 3431790086942627673}
@@ -797,6 +796,7 @@ GameObject:
   - component: {fileID: 3431790086942627677}
   - component: {fileID: 3431790086942627678}
   - component: {fileID: 3431790086942627679}
+  - component: {fileID: 6184636867864027780}
   m_Layer: 6
   m_Name: CrabMonster
   m_TagString: Untagged
@@ -844,19 +844,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3431790086942627671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3328286910605114547}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd59c5d72a7b3fb46b2aa65394d9294d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 3414550071583066383}
 --- !u!65 &3431790086942627675
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1045,6 +1032,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
+--- !u!114 &6184636867864027780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3328286910605114547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec1e21df443ade1a910a78377db7872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gEvent: {fileID: 11400000, guid: 4a1e03ffc1af5e829afd4e83f9cd9231, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3431790086942627677}
+        m_TargetAssemblyTypeName: Mako.AI.CrabMonsterAI, Assembly-CSharp
+        m_MethodName: GoOnSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3328290116296841903
 GameObject:
   m_ObjectHideFlags: 0

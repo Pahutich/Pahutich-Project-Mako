@@ -12,7 +12,6 @@ namespace Mako.Shooting
   [RequireComponent(typeof(ProjectilesPool))]
   public class Shooter : MonoBehaviour
   {
-    public int bulletsFired = 0;
     private bool inOverheat = false;
     private bool canShoot = false;
     private float cooldownTimer;
@@ -145,8 +144,6 @@ namespace Mako.Shooting
         currentOverheat += overheatPerShot;
         canShoot = false;
         cooldownTimer = cooldown;
-        bulletsFired++;
-        Debug.Log(bulletsFired);
       }
     }
     public bool GetOverhearStatus()

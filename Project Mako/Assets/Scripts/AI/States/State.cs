@@ -17,6 +17,7 @@ namespace Mako.AI
     }
 
     public STATE name;
+    public bool heardPlayer;
     protected EVENT stage;
     protected GameObject npc;
     protected Animator anim;

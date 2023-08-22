@@ -19,7 +19,7 @@ namespace Mako.AI
 
     public override void Update()
     {
-      if (CanSeePlayer())
+      if (heardPlayer || CanSeePlayer())
       {
         nextState = new Pursue(npc, agent, anim, player);
         stage = EVENT.EXIT;
@@ -30,7 +30,6 @@ namespace Mako.AI
         stage = EVENT.EXIT;
       }
     }
-
     public override void Exit()
     {
       anim.ResetTrigger("isIdle");
