@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Mako.VehicleDevices
 {
-
   public class Scanner : MonoBehaviour
   {
     private Vector3 mouseWorldPosition;
