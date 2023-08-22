@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e208403ba1059135ba04cb3ed9001f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberToPool: 12
+  numberToPool: 20
   projectilePrefab: {fileID: 8742691410914181158, guid: 8b7a4af53410d7c27acc929e93bdfbe4, type: 3}
 --- !u!114 &1213135231779275363
 MonoBehaviour:
@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f671151661d0ab18b56d8c6d61168c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletsFired: 0
   cooldown: 0.1
   overheatThreshold: 50
   overheatPerShot: 2
@@ -69,7 +70,7 @@ MonoBehaviour:
   aimColliderLayerMask:
     serializedVersion: 2
     m_Bits: 2147483647
-  weaponType: 0
+  <WeaponType>k__BackingField: 0
   currentOverheat: 0
 --- !u!82 &3332209954474916770
 AudioSource:
